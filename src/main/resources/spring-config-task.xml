@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/task 
+		http://www.springframework.org/schema/task/spring-task.xsd">
+
+	<context:property-placeholder
+		ignore-unresolvable="true" location="classpath:project-task.properties" />
+		
+	<!-- 配置注解扫描 -->  
+    <context:annotation-config />  
+  
+    <!-- 自动扫描的包名 -->  
+    <context:component-scan base-package="com.roamtech.uc.task" />  
+
+	<!-- 开启定时任务 -->
+	<task:annotation-driven />
+	
+    <!-- 此处对于定时时间的配置会被注解中的时间配置覆盖，因此，以注解配置为准 -->  
+    <task:scheduled-tasks scheduler="taskScheduler">  
+        <task:scheduled ref="ucScheduler" method="loadFixedPhone" cron="${task.cron.loadFixedPhone}"/>
+        <task:scheduled ref="ucScheduler" method="expireTouchVoice" cron="${task.cron.expireTouchVoice}"/>
+        <task:scheduled ref="ucScheduler" method="bssLoadData" cron="${task.cron.bssLoadData}"/>
+    </task:scheduled-tasks>  
+    <task:scheduler id="taskScheduler" pool-size="${task.pool.size}"/>  
+
+</beans>

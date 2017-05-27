@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.cloopen.rest.sdk:smssdk:v2.6.3r">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/cloopen/rest/sdk/smssdk/v2.6.3r/smssdk-v2.6.3r.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/cloopen/rest/sdk/smssdk/v2.6.3r/smssdk-v2.6.3r-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/cloopen/rest/sdk/smssdk/v2.6.3r/smssdk-v2.6.3r-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

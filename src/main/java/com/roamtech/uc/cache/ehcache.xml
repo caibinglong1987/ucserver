@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache name="es">
+
+    <diskStore path="java.io.tmpdir"/>
+
+
+    <cache name="sessionCache"
+           maxEntriesLocalHeap="30000"
+           eternal="false"
+           timeToIdleSeconds="86500"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           diskPersistent="false" memoryStoreEvictionPolicy="LRU"
+           statistics="false">
+    </cache>
+
+</ehcache>

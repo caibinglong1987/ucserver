@@ -1,0 +1,785 @@
+
+http://192.168.0.49:8050/uc/services/city_gets?userid=7&sessionid=c82ac329-3e47-48b2-bd41-4d5e57d424f0&pid=0
+{"error_info":"成功","error_no":0,"result":{"cities":[{"id":1,"name":"中国","pid":0,"type":0}]},"sessionid":"c82ac329-3e47-48b2-bd41-4d5e57d424f0","userid":7}
+http://192.168.0.49:8050/uc/services/city_gets?userid=&sessionid=c82ac329-3e47-48b2-bd41-4d5e57d424f0&pid=1
+{"error_info":"成功","error_no":0,"result":{"cities":[{"id":2,"name":"北京","pid":1,"type":1},{"id":3,"name":"安徽","pid":1,"type":1},{"id":4,"name":"福建","pid":1,"type":1},{"id":5,"name":"甘肃","pid":1,"type":1},{"id":6,"name":"广东","pid":1,"type":1},{"id":7,"name":"广西","pid":1,"type":1},{"id":8,"name":"贵州","pid":1,"type":1},{"id":9,"name":"海南","pid":1,"type":1},{"id":10,"name":"河北","pid":1,"type":1},{"id":11,"name":"河南","pid":1,"type":1},{"id":12,"name":"黑龙江","pid":1,"type":1},{"id":13,"name":"湖北","pid":1,"type":1},{"id":14,"name":"湖南","pid":1,"type":1},{"id":15,"name":"吉林","pid":1,"type":1},{"id":16,"name":"江苏","pid":1,"type":1},{"id":17,"name":"江西","pid":1,"type":1},{"id":18,"name":"辽宁","pid":1,"type":1},{"id":19,"name":"内蒙古","pid":1,"type":1},{"id":20,"name":"宁夏","pid":1,"type":1},{"id":21,"name":"青海","pid":1,"type":1},{"id":22,"name":"山东","pid":1,"type":1},{"id":23,"name":"山西","pid":1,"type":1},{"id":24,"name":"陕西","pid":1,"type":1},{"id":25,"name":"上海","pid":1,"type":1},{"id":26,"name":"四川","pid":1,"type":1},{"id":27,"name":"天津","pid":1,"type":1},{"id":28,"name":"西藏","pid":1,"type":1},{"id":29,"name":"新疆","pid":1,"type":1},{"id":30,"name":"云南","pid":1,"type":1},{"id":31,"name":"浙江","pid":1,"type":1},{"id":32,"name":"重庆","pid":1,"type":1},{"id":33,"name":"香港","pid":1,"type":1},{"id":34,"name":"澳门","pid":1,"type":1},{"id":35,"name":"台湾","pid":1,"type":1}]},"sessionid":"c82ac329-3e47-48b2-bd41-4d5e57d424f0","userid":7}[root@192 uc-server-0.1]# 
+ 
+http://192.168.0.49:8050/uc/services/city_gets?userid=7&sessionid=c82ac329-3e47-48b2-bd41-4d5e57d424f0&pid=2
+{"error_info":"成功","error_no":0,"result":{"cities":[{"id":52,"name":"北京","pid":2,"type":2}]},"sessionid":"c82ac329-3e47-48b2-bd41-4d5e57d424f0","userid":7}
+http://192.168.0.49:8050/uc/services/city_gets?userid=7&sessionid=c82ac329-3e47-48b2-bd41-4d5e57d424f0&pid=52
+{"error_info":"成功","error_no":0,"result":{"cities":[{"id":500,"name":"东城区","pid":52,"type":3},{"id":501,"name":"西城区","pid":52,"type":3},{"id":502,"name":"海淀区","pid":52,"type":3},{"id":503,"name":"朝阳区","pid":52,"type":3},{"id":504,"name":"崇文区","pid":52,"type":3},{"id":505,"name":"宣武区","pid":52,"type":3},{"id":506,"name":"丰台区","pid":52,"type":3},{"id":507,"name":"石景山区","pid":52,"type":3},{"id":508,"name":"房山区","pid":52,"type":3},{"id":509,"name":"门头沟区","pid":52,"type":3},{"id":510,"name":"通州区","pid":52,"type":3},{"id":511,"name":"顺义区","pid":52,"type":3},{"id":512,"name":"昌平区","pid":52,"type":3},{"id":513,"name":"怀柔区","pid":52,"type":3},{"id":514,"name":"平谷区","pid":52,"type":3},{"id":515,"name":"大兴区","pid":52,"type":3},{"id":516,"name":"密云县","pid":52,"type":3},{"id":517,"name":"延庆县","pid":52,"type":3}]},"sessionid":"c82ac329-3e47-48b2-bd41-4d5e57d424f0","userid":7}
+
+设置收货地址
+http://192.168.0.49:8050/uc/services/address_set?userid=7&sessionid=e9469abc-dbd0-42f9-841e-22fc0198758f&consignee=郑世杰&email=zhengshijie@roam-tech.com&mobile=13967124998&count=1&province=31&city=383&district=3233&address=东信大道江涛阁2-1-501&zipcode=
+
+http://192.168.0.49:8050/uc/services/login?username=zhengsj&password=123456
+获取我的收获地址：
+http://192.168.0.49:8050/uc/services/address_gets?userid=7&sessionid=f5b29531-ad0e-451b-8b43-6ecea5608bdd
+{"error_info":"成功","error_no":0,"result":{"addresses":[{"address":"???????2-1-501","cities":[{"id":31,"name":"浙江","pid":1,"type":1},{"id":383,"name":"杭州","pid":31,"type":2},{"id":3233,"name":"滨江区","pid":383,"type":3}],"city":383,"consignee":"???","country":1,"district":3233,"email":"zhengshijie@roam-tech.com","id":1,"mobile":"13967124998","province":31,"userid":7,"zipcode":""},{"address":"???????2-1-501","cities":[{"id":31,"name":"浙江","pid":1,"type":1},{"id":383,"name":"杭州","pid":31,"type":2},{"id":3233,"name":"滨江区","pid":383,"type":3}],"city":383,"consignee":"???","country":1,"district":3233,"email":"zhengshijie@roam-tech.com","id":2,"mobile":"13967124998","province":31,"userid":7,"zipcode":""},{"address":"东信大道江涛阁2-1-501","cities":[{"id":31,"name":"浙江","pid":1,"type":1},{"id":383,"name":"杭州","pid":31,"type":2},{"id":3233,"name":"滨江区","pid":383,"type":3}],"city":383,"consignee":"郑世杰","country":1,"defaultaddr":true,"district":3233,"email":"zhengshijie@roam-tech.com","id":3,"mobile":"13967124998","province":31,"userid":7},{"address":"东信大道江涛阁2-1-501","cities":[{"id":31,"name":"浙江","pid":1,"type":1},{"id":383,"name":"杭州","pid":31,"type":2},{"id":3233,"name":"滨江区","pid":383,"type":3}],"city":383,"consignee":"郑世杰","country":1,"district":3233,"email":"zhengshijie@roam-tech.com","id":4,"mobile":"13967124998","province":31,"userid":7,"zipcode":""}]},"sessionid":"f1aef5a6-344a-40b8-99da-c2528c9d74d9","userid":7}
+设为默认收货地址
+http://192.168.0.49:8050/uc/services/address_set?userid=7&sessionid=f3bd0094-fa54-414c-847b-baceccc7d06a&address_id=3&defaultaddr=true
+删除指定收货地址
+curl -d "userid=7&sessionid=30a02bfa-636c-4fb0-899a-163df8174dda&addrid=1" http://192.168.0.49:8050/uc/services/address_delete
+{"error_info":"成功","error_no":0,"sessionid":"30a02bfa-636c-4fb0-899a-163df8174dda","userid":7}
+
+获取指定类目的产品信息：
+http://192.168.0.49:8050/uc/services/product_gets?userid=7&sessionid=f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68&categoryid=2
+{"error_info":"成功","error_no":0,"result":{"products":[{"brandid":1,"categoryid":2,"createtime":1464105600000,"description":"上网流量套餐，充值给上网卡上网使用。","groupid":0,"id":2,"image":"images/201605/prd_imgs/124.png","is_delete":false,"is_package":false,"is_real":true,"modifytime":1464105600000,"name":"上网卡流量","packages":[],"prdattrs":[{"attr":{"id":1,"input_type":true,"name":"国家地区","type":"checkbox","typeid":2,"values":"","varname":"areaname"},"id":1,"price":"+5.0","productid":2,"value":"美国"},{"attr":{"id":1,"input_type":true,"name":"国家地区","type":"checkbox","typeid":2,"values":"","varname":"areaname"},"id":2,"price":"","productid":2,"value":"欧洲"},{"attr":{"id":1,"input_type":true,"name":"国家地区","type":"checkbox","typeid":2,"values":"","varname":"areaname"},"id":3,"price":"+3.0","productid":2,"value":"泰国"},{"attr":{"id":1,"input_type":true,"name":"国家地区","type":"checkbox","typeid":2,"values":"","varname":"areaname"},"id":4,"price":"+3.0","productid":2,"value":"新加坡"},{"attr":{"id":1,"input_type":true,"name":"国家地区","type":"checkbox","typeid":2,"values":"","varname":"areaname"},"id":5,"price":"","productid":2,"value":"马尔代夫"},{"attr":{"id":2,"input_type":true,"name":"开始时间","type":"datetime","typeid":2,"values":"","varname":"effect_datetime"},"id":6,"price":"","productid":2,"value":""},{"attr":{"id":3,"input_type":true,"name":"结束时间","type":"datetime","typeid":2,"values":"","varname":"failure_datetime"},"id":7,"price":"","productid":2,"value":""},{"attr":{"id":6,"input_type":true,"name":"上网卡号","type":"number","typeid":2,"values":"","varname":"simid"},"id":10,"price":"","productid":2,"value":""}],"quantity_per_unit":1,"sale_state":1,"sell_count":0,"stock_number":100,"storeid":1,"subname":"全球上网流量套餐","typeid":2,"unit_price":30,"validity":-1}]},"sessionid":"f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68","userid":7}
+
+加入购物车
+http://192.168.0.49:8050/uc/services/cart_set?userid=7&sessionid=f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68&productid=1&quantity=1
+{"error_info":"成功","error_no":0,"result":{"cart":{"discount":100,"id":3,"productid":1,"quantity":1,"sessionid":"f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68","unit_price":50,"userid":7}},"sessionid":"f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68","userid":7}
+http://192.168.0.49:8050/uc/services/cart_set?userid=7&sessionid=f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68&productid=2&quantity=1&effect_datetime=2016-05-25 18:49:20&failure_datetime=2026-05-25 18:49:20&simid=11223344&areaname=美国
+{"error_info":"成功","error_no":0,"result":{"cart":{"discount":100,"id":4,"odprdattrs":[{"name":"国家地区","price":"+5.0","value":"美国","varname":"areaname"},{"name":"开始时间","price":"","value":"2016-05-25 18:49:20","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2026-05-25 18:49:20","varname":"failure_datetime"},{"name":"上网卡号","price":"","value":"11223344","varname":"simid"}],"productid":2,"quantity":1,"sessionid":"f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68","unit_price":30.1,"userid":7}},"sessionid":"f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68","userid":7}
+http://192.168.0.49:8050/uc/services/cart_set?userid=7&sessionid=f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68&productid=2&quantity=1&effect_datetime=2016-05-25 18:49:20&failure_datetime=2026-05-25 18:49:20&simid=11223344
+{"error_info":"成功","error_no":0,"result":{"cart":{"discount":100,"id":5,"odprdattrs":[{"name":"开始时间","price":"","value":"2016-05-25 18:49:20","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2026-05-25 18:49:20","varname":"failure_datetime"},{"name":"专用号码","price":"","value":"11223344","varname":"simid"}],"productid":3,"quantity":1,"sessionid":"f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68","unit_price":25.2,"userid":7}},"sessionid":"f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68","userid":7}
+http://192.168.0.49:8050/uc/services/cart_set?userid=7&sessionid=29fe0904-2c03-4477-9064-b4da9b796573&productid=5&quantity=1&effect_datetime=2016-07-25%2000:00:00&failure_datetime=2016-08-05%2023:59:59&areaname=美国
+{"error_info":"成功","error_no":0,"result":{"cart":{"discount":95,"id":41,"odprdattrs":[{"name":"国家地区","price":"+5.0","value":"美国","varname":"areaname"},{"name":"开始时间","price":"","value":"2016-07-25 00:00:00","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2016-08-05 23:59:59","varname":"failure_datetime"}],"productid":5,"quantity":1,"quantity_per_unit":12,"sessionid":"29fe0904-2c03-4477-9064-b4da9b796573","unit_price":411.20,"userid":7}},"sessionid":"29fe0904-2c03-4477-9064-b4da9b796573","userid":7}
+获取我的购物车
+http://192.168.0.49:8050/uc/services/cart_gets?userid=7&sessionid=f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68
+{"error_info":"成功","error_no":0,"result":{"carts":[{"discount":100,"id":3,"productid":1,"quantity":1,"sessionid":"f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68","unit_price":50,"userid":7},{"discount":100,"id":4,"odprdattrs":[{"name":"国家地区","price":"+5.0","value":"美国","varname":"areaname"},{"name":"开始时间","price":"","value":"2016-05-25 18:49:20","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2026-05-25 18:49:20","varname":"failure_datetime"},{"name":"上网卡号","price":"","value":"11223344","varname":"simid"}],"productid":2,"quantity":1,"sessionid":"f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68","unit_price":30.1,"userid":7},{"discount":100,"id":5,"odprdattrs":[{"name":"开始时间","price":"","value":"2016-05-25 18:49:20","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2026-05-25 18:49:20","varname":"failure_datetime"},{"name":"专用号码","price":"","value":"11223344","varname":"simid"}],"productid":3,"quantity":1,"sessionid":"f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68","unit_price":25.2,"userid":7}]},"sessionid":"f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68","userid":7}
+
+提交订单
+http://192.168.0.49:8050/uc/services/order_submit?userid=7&sessionid=f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68&shipping_address=3&shipping_id=1&pay_id=2&productid=1&quantity=1
+{"error_info":"成功","error_no":0,"result":{"order":{"createtime":1465213235634,"id":3,"order_status":0,"orderdetails":[{"discount":100,"id":1,"orderid":3,"productid":1,"quantity":1,"unit_price":50}],"pay_status":0,"payid":2,"price":50,"receipt":false,"ship_address":3,"shipping_id":1,"shipping_status":0,"userid":7}},"sessionid":"f0da18b0-0c7e-4a27-b5cc-98f3b8bbbc68","userid":7}
+http://192.168.0.49:8050/uc/services/order_submit?userid=7&sessionid=3e9f9693-adcc-4097-ba01-12ec969ec512&pay_id=2&cartids=10,11
+{"error_info":"成功","error_no":0,"result":{"order":{"createtime":1465215924362,"id":4,"order_status":0,"orderdetails":[{"discount":100,"id":2,"orderid":4,"productid":1,"quantity":1,"unit_price":50},{"discount":100,"id":3,"odprdattrs":[{"name":"开始时间","price":"","value":"2016-05-25 18:49:20","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2026-05-25 18:49:20","varname":"failure_datetime"},{"name":"专用号码","price":"","value":"11223344","varname":"simid"}],"orderid":4,"productid":3,"quantity":1,"unit_price":25.2}],"pay_status":0,"payid":2,"price":75.2,"receipt":false,"ship_address":-1,"shipping_id":0,"shipping_status":0,"userid":7}},"sessionid":"3e9f9693-adcc-4097-ba01-12ec969ec512","userid":7}
+http://192.168.0.49:8050/uc/services/order_submit?userid=7&sessionid=3e9f9693-adcc-4097-ba01-12ec969ec512&shipping_address=3&shipping_id=1&pay_id=2&cartids=9
+{"error_info":"成功","error_no":0,"result":{"order":{"createtime":1465215989186,"id":5,"order_status":0,"orderdetails":[{"discount":100,"id":4,"odprdattrs":[{"name":"国家地区","price":"+5.0","value":"美国","varname":"areaname"},{"name":"开始时间","price":"","value":"2016-05-25 18:49:20","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2026-05-25 18:49:20","varname":"failure_datetime"},{"name":"上网卡号","price":"","value":"11223344","varname":"simid"}],"orderid":5,"productid":2,"quantity":1,"unit_price":30.1}],"pay_status":0,"payid":2,"price":30.1,"receipt":false,"ship_address":3,"shipping_id":1,"shipping_status":0,"userid":7}},"sessionid":"3e9f9693-adcc-4097-ba01-12ec969ec512","userid":7}
+curl -d "userid=7&sessionid=1b7939a8-cb05-4a81-a401-1b8ccecf8ce3&productid=2&quantity=1&effect_datetime=2016-06-18 00:00:00&failure_datetime=2016-06-25 23:59:59&areaname=马尔代夫" http://192.168.0.49:8050/uc/services/order_submit
+{"error_info":"成功","error_no":0,"result":{"order":{"createtime":"2016-06-15 18:57:52","id":6,"order_status":0,"orderdetails":[{"discount":95,"id":5,"odprdattrs":[{"name":"国家地区","price":"","value":"马尔代夫","varname":"areaname"},{"name":"开始时间","price":"","value":"2016-06-18 00:00:00","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2016-06-25 23:59:59","varname":"failure_datetime"}],"orderid":6,"productid":2,"quantity":1,"quantity_per_unit":691200,"unit_price":2.080512E7}],"pay_status":0,"price":1.9764864E7,"shipping_status":0,"userid":7}},"sessionid":"1b7939a8-cb05-4a81-a401-1b8ccecf8ce3","userid":7}
+http://192.168.0.49:8050/uc/services/order_submit?userid=7&sessionid=29fe0904-2c03-4477-9064-b4da9b796573&cartids=41
+{"error_info":"成功","error_no":0,"result":{"order":{"createtime":"2016-07-06 14:44:34","discount":20.56,"id":527,"order_status":0,"orderdetails":[{"discount":95,"id":629,"odprdattrs":[{"name":"国家地区","price":"+5.0","value":"美国","varname":"areaname"},{"name":"开始时间","price":"","value":"2016-07-25 00:00:00","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2016-08-05 23:59:59","varname":"failure_datetime"}],"orderid":527,"productid":5,"quantity":1,"quantity_per_unit":12,"unit_price":411.20}],"pay_status":0,"payable_amount":390.64,"price":411.20,"shipping_status":0,"userid":7}},"sessionid":"29fe0904-2c03-4477-9064-b4da9b796573","userid":7}
+curl -d '{"userid":"1","sessionid":"320fc1e7-523b-4d1a-86d3-438334e1d1d9","cart":{"productid":5,"effect_datetime":"2016-07-30 00:00:00","failure_datetime":"2016-07-30 23:59:59","quantity":1,"simid":"","areaname":"美国","genevoucher":false}}' -H "Content-Type: application/json; charset=utf8" http://localhost:8070/uc/services/order_submit
+订购专用号码+语音套餐
+https://www.roam-tech.com/uc/services/order_submit?userid=1&sessionid=ff5a57d3-cdec-4783-ac63-f16e0855f5e2&productid=7&quantity=1&effect_datetime=2016-07-18 00:00:00&failure_datetime=2016-07-25 23:59:59&call_duration=300
+{"error_info":"成功","error_no":0,"result":{"order":{"createtime":"2016-07-12 18:13:06","discount":1.55,"id":81,"order_status":0,"orderdetails":[{"discount":95,"id":80,"odprdattrs":[{"name":"开始时间","price":"","value":"2016-07-18 00:00:00","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2016-07-25 23:59:59","varname":"failure_datetime"},{"name":"通话时长","price":"","value":"300","varname":"call_duration"}],"orderid":81,"productid":7,"quantity":1,"quantity_per_unit":8,"unit_price":31.00}],"pay_status":0,"payable_amount":29.45,"price":31.00,"shipping_status":0,"userid":1}},"sessionid":"ff5a57d3-cdec-4783-ac63-f16e0855f5e2","userid":1}
+更新订单详情
+http://192.168.0.49:8050/uc/services/orderdetail_set?userid=7&sessionid=3e9f9693-adcc-4097-ba01-12ec969ec512&orderdetailid=4&productid=2&quantity=2&effect_datetime=2016-06-10 00:00:00&failure_datetime=2016-06-11 23:59:59&areaname=马尔代夫
+{"error_info":"成功","error_no":0,"result":{"orderdetail":{"discount":100,"id":4,"odprdattrs":[{"name":"国家地区","price":"","value":"马尔代夫","varname":"areaname"},{"name":"开始时间","price":"","value":"2016-05-25 18:49:20","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2016-06-11 23:59:59","varname":"failure_datetime"}],"orderid":5,"productid":2,"quantity":2,"unit_price":30.1}},"sessionid":"c832d6b4-3461-44c3-8983-2f4f7bd8ac2f","userid":7}
+ curl -d "userid=7&sessionid=1e1354b1-02a4-4c5a-9970-f83f7e536374&orderdetailid=6&productid=1&quantity=1" http://192.168.0.49:8050/uc/services/orderdetail_set
+{"error_info":"成功","error_no":0,"result":{"order":{"createtime":"2016-06-15 18:57:52","discount":15.05,"id":6,"obtaintime":"2016-06-17 10:30:00","obtainvoucher":true,"order_status":0,"orderdetails":[{"discount":95,"id":5,"odprdattrs":[{"name":"国家地区","price":"","value":"马尔代夫","varname":"areaname"},{"name":"开始时间","price":"","value":"2016-06-18 00:00:00","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2016-06-27 23:59:59","varname":"failure_datetime"}],"orderid":6,"productid":2,"quantity":1,"quantity_per_unit":10,"unit_price":301},{"discount":100,"id":6,"orderid":6,"productid":1,"quantity":1,"quantity_per_unit":1,"unit_price":50},{"discount":100,"id":7,"orderid":6,"productid":1,"quantity":1,"quantity_per_unit":1,"unit_price":50}],"outletid":2,"pay_status":1,"payable_amount":385.95,"payid":1,"paytime":"2016-06-15 20:28:02","payvoucher":"123451234512345","price":401,"ship_address":4,"shipping_fee":5,"shipping_id":1,"shipping_status":0,"userid":7}},"sessionid":"1e1354b1-02a4-4c5a-9970-f83f7e536374","userid":7}
+--指定要生成电子券
+curl -d "userid=7&sessionid=2f14eb88-de1e-43a5-9d5a-1146a68adff0&orderdetailid=5&productid=2&quantity=1&effect_datetime=2016-06-18 00:00:00&failure_datetime=2016-06-27 23:59:59&areaname=马尔代夫&genevoucher=true" http://192.168.0.49:8050/uc/services/orderdetail_set
+{"error_info":"成功","error_no":0,"result":{"order":{"createtime":"2016-06-15 18:57:52","discount":15.05,"id":6,"obtaintime":"2016-06-17 10:30:00","obtainvoucher":true,"order_status":0,"orderdetails":[{"discount":95,"id":5,"odprdattrs":[{"name":"国家地区","price":"","value":"马尔代夫","varname":"areaname"},{"name":"开始时间","price":"","value":"2016-06-18 00:00:00","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2016-06-27 23:59:59","varname":"failure_datetime"},{"name":"生成电子券","price":"","value":"true","varname":"genevoucher"}],"orderid":6,"productid":2,"quantity":1,"quantity_per_unit":10,"unit_price":301},{"discount":100,"id":6,"orderid":6,"productid":1,"quantity":1,"quantity_per_unit":1,"unit_price":50},{"discount":100,"id":7,"orderid":6,"productid":1,"quantity":1,"quantity_per_unit":1,"unit_price":50}],"outletid":2,"pay_status":1,"payable_amount":385.95,"payid":1,"paytime":"2016-06-15 20:28:02","payvoucher":"123451234512345","price":401,"ship_address":4,"shipping_fee":5,"shipping_id":1,"shipping_status":0,"userid":7,"voucher_amount":10}},"sessionid":"2f14eb88-de1e-43a5-9d5a-1146a68adff0","userid":7}
+新增订单详情
+curl -d "userid=7&sessionid=9eef098b-575a-441e-9711-8f7076af73ca&orderid=6&productid=1&quantity=1" http://192.168.0.49:8050/uc/services/orderdetail_set
+{"error_info":"成功","error_no":0,"result":{"order":{"createtime":"2016-06-15 18:57:52","id":6,"order_status":0,"orderdetails":[{"discount":95,"id":5,"odprdattrs":[{"name":"国家地区","price":"","value":"马尔代夫","varname":"areaname"},{"name":"开始时间","price":"","value":"2016-06-18 00:00:00","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2016-06-27 23:59:59","varname":"failure_datetime"}],"orderid":6,"productid":2,"quantity":1,"quantity_per_unit":10,"unit_price":301},{"discount":100,"id":6,"orderid":6,"productid":1,"quantity":1,"quantity_per_unit":1,"unit_price":50},{"discount":100,"id":7,"orderid":6,"productid":1,"quantity":1,"quantity_per_unit":1,"unit_price":50}],"pay_status":0,"price":385.95,"shipping_status":0,"userid":7}},"sessionid":"9eef098b-575a-441e-9711-8f7076af73ca","userid":7}
+获取我的订单
+http://www.roam-tech.com/uc/services/order_gets?userid=1&sessionid=ff5a57d3-cdec-4783-ac63-f16e0855f5e2&pageindex=0&pagesize=10
+{"error_info":"成功","error_no":0,"result":{"orders":[{"createtime":"2016-07-14 07:25:15","discount":1.50,"id":107,"order_status":0,"orderdetails":[{"discount":95,"id":106,"odprdattrs":[{"name":"通话时长","price":"","value":"300","varname":"call_duration"}],"orderid":107,"productid":3,"quantity":1,"quantity_per_unit":1,"unit_price":30.00}],"pay_status":0,"payable_amount":28.50,"price":30.00,"shipping_status":0,"userid":1},{"createtime":"2016-07-14 07:00:31","discount":1.59,"id":102,"order_status":0,"orderdetails":[{"discount":95,"id":101,"odprdattrs":[{"name":"开始时间","price":"","value":"2016-07-18 00:00:00","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2016-07-25 23:59:59","varname":"failure_datetime"},{"name":"通话时长","price":"","value":"300","varname":"call_duration"},{"name":"专用号码","price":"","value":"13067781873","varname":"phone"}],"orderid":102,"productid":7,"quantity":1,"quantity_per_unit":8,"unit_price":31.90}],"pay_status":0,"payable_amount":30.31,"price":31.90,"shipping_status":0,"userid":1},{"createtime":"2016-07-14 06:58:29","discount":1.59,"id":101,"order_status":0,"orderdetails":[{"discount":95,"id":100,"odprdattrs":[{"name":"开始时间","price":"","value":"2016-07-18 00:00:00","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2016-07-25 23:59:59","varname":"failure_datetime"},{"name":"通话时长","price":"","value":"300","varname":"call_duration"},{"name":"专用号码","price":"","value":"13067781713","varname":"phone"}],"orderid":101,"productid":7,"quantity":1,"quantity_per_unit":8,"unit_price":31.90}],"pay_status":0,"payable_amount":30.31,"price":31.90,"shipping_status":0,"userid":1},{"createtime":"2016-07-13 17:28:56","discount":4.50,"id":98,"order_status":0,"orderdetails":[{"discount":95,"id":97,"odprdattrs":[{"name":"通话时长","price":"","value":"900","varname":"call_duration"}],"orderid":98,"productid":3,"quantity":1,"quantity_per_unit":1,"unit_price":90.00}],"pay_status":1,"payable_amount":85.50,"payid":2,"paytime":"2016-07-13 17:29:42","price":90.00,"shipping_status":0,"userid":1},{"createtime":"2016-07-13 17:19:44","discount":0.10,"id":97,"order_status":0,"orderdetails":[{"discount":95,"id":96,"odprdattrs":[{"name":"开始时间","price":"","value":"2016-07-05 00:00:00","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2016-07-05 23:59:59","varname":"failure_datetime"},{"name":"通话时长","price":"","value":"400","varname":"call_duration"}],"orderid":97,"productid":7,"quantity":1,"quantity_per_unit":1,"unit_price":2.00}],"pay_status":1,"payable_amount":1.90,"payid":2,"paytime":"2016-07-13 17:27:31","price":2.00,"shipping_status":0,"userid":1},{"createtime":"2016-07-13 16:43:33","discount":0.00,"id":96,"order_status":0,"orderdetails":[{"discount":100,"id":95,"odprdattrs":[{"name":"开始时间","price":"","value":"2016-07-18","varname":"effect_datetime"}],"orderid":96,"productid":7,"quantity":1,"quantity_per_unit":1,"unit_price":2.00}],"pay_status":0,"payable_amount":2.00,"price":2.00,"shipping_status":0,"userid":1},{"createtime":"2016-07-13 16:39:29","discount":0.00,"id":95,"obtainvoucher":false,"order_status":0,"orderdetails":[{"discount":100,"id":94,"odprdattrs":[{"name":"国家地区","price":"","value":"马尔代夫","varname":"areaname"},{"name":"开始时间","price":"","value":"2016-07-05 00:00:00","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2016-07-06 23:59:59","varname":"failure_datetime"},{"name":"生成电子券","price":"","value":"false","varname":"genevoucher"}],"orderid":95,"productid":5,"quantity":1,"quantity_per_unit":2,"unit_price":110.20}],"pay_status":0,"payable_amount":110.20,"price":110.20,"ship_address":4,"shipping_fee":10.00,"shipping_id":1,"shipping_status":0,"userid":1},{"createtime":"2016-07-13 16:35:54","discount":0.00,"id":94,"order_status":2,"orderdetails":[{"discount":100,"id":93,"odprdattrs":[{"name":"通话时长","price":"","value":"200","varname":"call_duration"}],"orderid":94,"productid":3,"quantity":1,"quantity_per_unit":1,"unit_price":20.00}],"pay_status":0,"payable_amount":20.00,"price":20.00,"shipping_status":0,"userid":1},{"createtime":"2016-07-13 15:02:23","discount":2.09,"id":93,"order_status":2,"orderdetails":[{"discount":95,"id":92,"odprdattrs":[{"name":"开始时间","price":"","value":"2016-07-04 00:00:00","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2016-07-05 23:59:59","varname":"failure_datetime"},{"name":"通话时长","price":"","value":"400","varname":"call_duration"}],"orderid":93,"productid":7,"quantity":1,"quantity_per_unit":2,"unit_price":41.90}],"pay_status":0,"payable_amount":39.81,"price":41.90,"shipping_status":0,"userid":1},{"createtime":"2016-07-13 14:55:23","discount":1.50,"id":92,"order_status":2,"orderdetails":[{"discount":95,"id":91,"odprdattrs":[{"name":"通话时长","price":"","value":"300","varname":"call_duration"}],"orderid":92,"productid":3,"quantity":1,"quantity_per_unit":1,"unit_price":30.00}],"pay_status":0,"payable_amount":28.50,"price":30.00,"shipping_status":0,"userid":1}]},"sessionid":"ff5a57d3-cdec-4783-ac63-f16e0855f5e2","userid":1}
+curl -d '{"userid":1,"sessionid":"9f734b33-b816-4650-aaac-ec8036770451"}' -H "Content-Type: application/json" http://localhost:8070/uc/services/order_gets
+{
+    "error_info": "成功",
+    "error_no": 0,
+    "result": {
+        "orders": [
+            {
+                "createtime": "2016-07-28 16:29:46",
+                "discount": 0,
+                "id": 705,
+                "order_status": 2,
+                "orderdetails": [
+                    {
+                        "call_duration": 40,
+                        "discount": 0,
+                        "effect_datetime": "2016-07-28 16:29:46",
+                        "failure_datetime": "2017-07-28 16:29:46",
+                        "id": 700,
+                        "odprdattrs": [
+                            {
+                                "name": "通话时长",
+                                "price": "",
+                                "value": "40",
+                                "varname": "call_duration"
+                            }
+                        ],
+                        "orderid": 705,
+                        "productid": 3,
+                        "quantity": 1,
+                        "quantity_per_unit": 1,
+                        "simids": [],
+                        "source": "来自订单",
+                        "unit_price": 4,
+                        "userid": 1
+                    }
+                ],
+                "pay_status": 0,
+                "payable_amount": 4,
+                "price": 4,
+                "shipping_status": 0,
+                "userid": 1
+            },
+            {
+                "createtime": "2016-07-28 14:08:06",
+                "discount": 0,
+                "id": 700,
+                "order_status": 2,
+                "orderdetails": [
+                    {
+                        "discount": 0,
+                        "id": 695,
+                        "odprdattrs": [
+                            {
+                                "name": "通话时长",
+                                "price": "",
+                                "value": "40",
+                                "varname": "call_duration"
+                            }
+                        ],
+                        "orderid": 700,
+                        "productid": 3,
+                        "quantity": 1,
+                        "quantity_per_unit": 1,
+                        "simids": [],
+                        "unit_price": 4
+                    }
+                ],
+                "pay_status": 0,
+                "payable_amount": 4,
+                "price": 4,
+                "shipping_status": 0,
+                "userid": 1
+            },
+            {
+                "createtime": "2016-07-28 11:30:08",
+                "discount": 0,
+                "id": 674,
+                "obtainvoucher": false,
+                "order_status": 0,
+                "orderdetails": [
+                    {
+                        "discount": 0,
+                        "id": 669,
+                        "orderid": 674,
+                        "productid": 1,
+                        "quantity": 1,
+                        "quantity_per_unit": 1,
+                        "simids": [],
+                        "unit_price": 0.01
+                    }
+                ],
+                "pay_status": 0,
+                "payable_amount": 0.01,
+                "price": 0.01,
+                "ship_address": 40,
+                "shipping_fee": 10,
+                "shipping_id": 1,
+                "shipping_status": 0,
+                "userid": 1
+            },
+            {
+                "createtime": "2016-07-28 11:22:19",
+                "discount": 0,
+                "id": 669,
+                "order_status": 0,
+                "orderdetails": [
+                    {
+                        "call_duration": 50,
+                        "discount": 0,
+                        "effect_datetime": "2016-07-28 11:22:19",
+                        "failure_datetime": "2017-07-28 11:22:19",
+                        "id": 664,
+                        "odprdattrs": [
+                            {
+                                "name": "通话时长",
+                                "price": "",
+                                "value": "50",
+                                "varname": "call_duration"
+                            }
+                        ],
+                        "orderid": 669,
+                        "productid": 3,
+                        "quantity": 1,
+                        "quantity_per_unit": 1,
+                        "simids": [],
+                        "source": "来自订单",
+                        "unit_price": 5,
+                        "userid": 1
+                    }
+                ],
+                "pay_status": 0,
+                "payable_amount": 5,
+                "price": 5,
+                "shipping_status": 0,
+                "userid": 1
+            },
+            {
+                "createtime": "2016-07-28 11:22:15",
+                "discount": 0,
+                "id": 668,
+                "order_status": 2,
+                "orderdetails": [
+                    {
+                        "discount": 0,
+                        "id": 663,
+                        "odprdattrs": [
+                            {
+                                "name": "通话时长",
+                                "price": "",
+                                "value": "50",
+                                "varname": "call_duration"
+                            }
+                        ],
+                        "orderid": 668,
+                        "productid": 3,
+                        "quantity": 1,
+                        "quantity_per_unit": 1,
+                        "simids": [],
+                        "unit_price": 5
+                    }
+                ],
+                "pay_status": 0,
+                "payable_amount": 5,
+                "price": 5,
+                "shipping_status": 0,
+                "userid": 1
+            },
+            {
+                "createtime": "2016-07-28 11:22:02",
+                "discount": 0,
+                "id": 667,
+                "order_status": 2,
+                "orderdetails": [
+                    {
+                        "discount": 0,
+                        "id": 662,
+                        "odprdattrs": [
+                            {
+                                "name": "通话时长",
+                                "price": "",
+                                "value": "50",
+                                "varname": "call_duration"
+                            }
+                        ],
+                        "orderid": 667,
+                        "productid": 3,
+                        "quantity": 1,
+                        "quantity_per_unit": 1,
+                        "simids": [],
+                        "unit_price": 5
+                    }
+                ],
+                "pay_status": 0,
+                "payable_amount": 5,
+                "price": 5,
+                "shipping_status": 0,
+                "userid": 1
+            },
+            {
+                "createtime": "2016-07-28 11:21:13",
+                "discount": 93.31,
+                "id": 666,
+                "obtainvoucher": false,
+                "order_status": 0,
+                "orderdetails": [
+                    {
+                        "areaname": "欧洲",
+                        "discount": 93.31,
+                        "effect_datetime": "2016-09-28 00:00:00",
+                        "failure_datetime": "2016-11-28 23:59:59",
+                        "id": 661,
+                        "odprdattrs": [
+                            {
+                                "name": "国家地区",
+                                "price": "",
+                                "value": "欧洲",
+                                "varname": "areaname"
+                            },
+                            {
+                                "name": "开始时间",
+                                "price": "",
+                                "value": "2016-09-28 00:00:00",
+                                "varname": "effect_datetime"
+                            },
+                            {
+                                "name": "结束时间",
+                                "price": "",
+                                "value": "2016-11-28 23:59:59",
+                                "varname": "failure_datetime"
+                            },
+                            {
+                                "name": "生成电子券",
+                                "price": "",
+                                "value": "false",
+                                "varname": "genevoucher"
+                            }
+                        ],
+                        "orderid": 666,
+                        "productid": 5,
+                        "quantity": 1,
+                        "quantity_per_unit": 62,
+                        "simids": [],
+                        "source": "来自订单",
+                        "unit_price": 1866.21,
+                        "userid": 1
+                    }
+                ],
+                "pay_status": 0,
+                "payable_amount": 1772.9,
+                "price": 1866.21,
+                "ship_address": 40,
+                "shipping_fee": 10,
+                "shipping_id": 1,
+                "shipping_status": 0,
+                "userid": 1
+            },
+            {
+                "createtime": "2016-07-28 10:22:44",
+                "discount": 0,
+                "id": 651,
+                "order_status": 2,
+                "orderdetails": [
+                    {
+                        "discount": 0,
+                        "id": 646,
+                        "odprdattrs": [
+                            {
+                                "name": "通话时长",
+                                "price": "",
+                                "value": "20",
+                                "varname": "call_duration"
+                            }
+                        ],
+                        "orderid": 651,
+                        "productid": 3,
+                        "quantity": 1,
+                        "quantity_per_unit": 1,
+                        "simids": [],
+                        "unit_price": 2
+                    }
+                ],
+                "pay_status": 1,
+                "payable_amount": 2,
+                "payid": 2,
+                "paytime": "2016-07-28 10:27:27",
+                "price": 2,
+                "shipping_status": 0,
+                "userid": 1
+            },
+            {
+                "createtime": "2016-07-28 10:21:17",
+                "discount": 0,
+                "id": 648,
+                "obtainvoucher": false,
+                "order_status": 0,
+                "orderdetails": [
+                    {
+                        "areaname": "美国",
+                        "discount": 0,
+                        "effect_datetime": "2016-07-28 00:00:00",
+                        "failure_datetime": "2016-07-28 23:59:59",
+                        "id": 643,
+                        "odprdattrs": [
+                            {
+                                "name": "国家地区",
+                                "price": "+5.0",
+                                "value": "美国",
+                                "varname": "areaname"
+                            },
+                            {
+                                "name": "开始时间",
+                                "price": "",
+                                "value": "2016-07-28 00:00:00",
+                                "varname": "effect_datetime"
+                            },
+                            {
+                                "name": "结束时间",
+                                "price": "",
+                                "value": "2016-07-28 23:59:59",
+                                "varname": "failure_datetime"
+                            },
+                            {
+                                "name": "生成电子券",
+                                "price": "",
+                                "value": "false",
+                                "varname": "genevoucher"
+                            }
+                        ],
+                        "orderid": 648,
+                        "productid": 5,
+                        "quantity": 1,
+                        "quantity_per_unit": 1,
+                        "simids": [],
+                        "source": "来自订单",
+                        "unit_price": 30.11,
+                        "userid": 1
+                    }
+                ],
+                "pay_status": 0,
+                "payable_amount": 30.11,
+                "price": 30.11,
+                "ship_address": 40,
+                "shipping_fee": 10,
+                "shipping_id": 1,
+                "shipping_status": 0,
+                "userid": 1
+            },
+            {
+                "createtime": "2016-07-28 10:21:17",
+                "discount": 0,
+                "id": 649,
+                "order_status": 0,
+                "orderdetails": [
+                    {
+                        "areaname": "美国",
+                        "discount": 0,
+                        "effect_datetime": "2016-07-28 00:00:00",
+                        "failure_datetime": "2016-07-28 23:59:59",
+                        "id": 644,
+                        "odprdattrs": [
+                            {
+                                "name": "国家地区",
+                                "price": "+5.0",
+                                "value": "美国",
+                                "varname": "areaname"
+                            },
+                            {
+                                "name": "开始时间",
+                                "price": "",
+                                "value": "2016-07-28 00:00:00",
+                                "varname": "effect_datetime"
+                            },
+                            {
+                                "name": "结束时间",
+                                "price": "",
+                                "value": "2016-07-28 23:59:59",
+                                "varname": "failure_datetime"
+                            },
+                            {
+                                "name": "生成电子券",
+                                "price": "",
+                                "value": "false",
+                                "varname": "genevoucher"
+                            }
+                        ],
+                        "orderid": 649,
+                        "productid": 5,
+                        "quantity": 1,
+                        "quantity_per_unit": 1,
+                        "simids": [
+                            "100200300400500"
+                        ],
+                        "source": "来自订单",
+                        "unit_price": 30.11,
+                        "userid": 1
+                    }
+                ],
+                "pay_status": 0,
+                "payable_amount": 30.11,
+                "price": 30.11,
+                "shipping_status": 0,
+                "userid": 1
+            }
+        ]
+    },
+    "sessionid": "9f734b33-b816-4650-aaac-ec8036770451",
+    "userid": 1
+}
+用户当前可用流量语音套餐
+http://192.168.0.49:8050/uc/services/trafficvoice_get?userid=7&sessionid=cb9aaf6a-9445-4ce9-b924-a63f31501d85
+{"error_info":"成功","error_no":0,"result":{"servicepackages":[{"effect_datetime":"2016-05-25 18:49:20","failure_datetime":"2016-06-11 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"上网卡流量","orderdetailid":4,"orderid":5,"productid":2,"remainder":3.309597280092593,"type":2},{"effect_datetime":"2016-05-25 18:49:20","failure_datetime":"2026-05-25 18:49:20","logo":"images/201605/prd_imgs/125.png","name":"络漫语音","orderdetailid":3,"orderid":4,"productid":3,"remainder":3638.093867523148,"type":3}]},"sessionid":"654e1690-749e-43f8-9dc1-37e78d3dea7e","userid":7}
+http://www.roam-tech.com/uc/services/trafficvoice_get?userid=1&sessionid=ff5a57d3-cdec-4783-ac63-f16e0855f5e2
+{"error_info":"成功","error_no":0,"result":{"servicepackages":[{"areaname":"美国","effect_datetime":"2016-07-15 19:35:52","failure_datetime":"2017-07-15 19:35:52","logo":"images/201605/prd_imgs/124.png","name":"上网卡+流量","orderdetailid":170,"orderid":171,"productid":5,"remainder":365.00,"simid":"100200300400500","type":4},{"effect_datetime":"2016-07-15 00:00:00","failure_datetime":"2016-07-25 23:59:59","logo":"images/201605/prd_imgs/128.png","name":"络漫号码+语音","orderdetailid":169,"phone":"15557175002","productid":7,"remainder":10.18,"type":3}],"voiceavailable":{"remaindertime":446,"totaltime":600,"usedtime":154}},"sessionid":"ff5a57d3-cdec-4783-ac63-f16e0855f5e2","userid":1}
+用户所有可用流量语音套餐
+curl -d '{"userid":1,"sessionid":"f16f840f-5f55-41db-939c-8e0602089728"}' -H "Content-Type: application/json" http://localhost:8070/uc/services/alltrafficvoice_get
+{"error_info":"成功","error_no":0,"result":{"servicepackages":[{"areaname":"美国","effect_datetime":"2016-07-18 00:00:00","failure_datetime":"2016-07-22 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"全球上网流量","orderdetailid":203,"orderid":231,"productid":2,"quantity":1,"remainder":0.22,"simid":"100200300400500","simids":["100200300400500"],"type":2},{"areaname":"马尔代夫","effect_datetime":"2016-07-18 00:00:00","failure_datetime":"2016-07-23 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"全球上网流量","orderdetailid":204,"orderid":232,"productid":2,"quantity":1,"remainder":1.22,"simid":"100200300400500","simids":["100200300400500"],"type":2},{"areaname":"泰国","effect_datetime":"2016-07-18 00:00:00","failure_datetime":"2016-07-25 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"全球上网流量","orderdetailid":205,"orderid":233,"productid":2,"quantity":1,"remainder":3.22,"simid":"100200300400500","simids":["100200300400500"],"type":2},{"areaname":"泰国","effect_datetime":"2016-07-20 00:00:00","failure_datetime":"2016-07-25 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"全球上网流量","orderdetailid":256,"orderid":284,"productid":2,"quantity":1,"remainder":3.22,"simids":[],"type":2},{"areaname":"泰国","effect_datetime":"2016-07-30 00:00:00","failure_datetime":"2016-07-30 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"全球上网流量","orderdetailid":306,"orderid":334,"productid":2,"quantity":1,"remainder":8.22,"simid":"100200300400500","simids":["100200300400500"],"type":2},{"areaname":"泰国","effect_datetime":"2016-07-30 00:00:00","failure_datetime":"2016-07-30 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"全球上网流量","orderdetailid":306,"orderid":334,"productid":2,"quantity":1,"remainder":8.22,"simid":"100200300400500","simids":["100200300400500"],"type":2},{"areaname":"泰国","effect_datetime":"2016-07-30 00:00:00","failure_datetime":"2016-07-30 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"全球上网流量","orderdetailid":307,"orderid":334,"productid":2,"quantity":1,"remainder":8.22,"simids":[],"type":2},{"areaname":"泰国","effect_datetime":"2016-07-30 00:00:00","failure_datetime":"2016-07-30 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"全球上网流量","orderdetailid":307,"orderid":334,"productid":2,"quantity":1,"remainder":8.22,"simids":[],"type":2},{"areaname":"马尔代夫","effect_datetime":"2016-07-20 00:00:00","failure_datetime":"2016-07-30 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"上网卡+流量","orderdetailid":316,"orderid":343,"productid":5,"quantity":1,"remainder":8.22,"simids":[],"type":2},{"areaname":"马尔代夫","effect_datetime":"2016-07-20 00:00:00","failure_datetime":"2016-07-30 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"上网卡+流量","orderdetailid":316,"orderid":343,"productid":5,"quantity":1,"remainder":8.22,"simids":[],"type":2},{"areaname":"马尔代夫","effect_datetime":"2016-07-20 00:00:00","failure_datetime":"2016-07-30 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"上网卡+流量","orderdetailid":317,"orderid":343,"productid":5,"quantity":1,"remainder":8.22,"simids":[],"type":2},{"areaname":"马尔代夫","effect_datetime":"2016-07-20 00:00:00","failure_datetime":"2016-07-30 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"上网卡+流量","orderdetailid":317,"orderid":343,"productid":5,"quantity":1,"remainder":8.22,"simids":[],"type":2},{"areaname":"泰国","effect_datetime":"2016-07-30 00:00:00","failure_datetime":"2016-07-30 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"全球上网流量","orderdetailid":356,"orderid":382,"productid":2,"quantity":1,"remainder":8.22,"simid":"100200300400500","simids":["100200300400500"],"type":2},{"areaname":"泰国","effect_datetime":"2016-07-30 00:00:00","failure_datetime":"2016-07-30 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"全球上网流量","orderdetailid":357,"orderid":383,"productid":2,"quantity":1,"remainder":8.22,"simids":[],"type":2},{"areaname":"马尔代夫","effect_datetime":"2016-07-21 00:00:00","failure_datetime":"2016-07-22 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"上网卡+流量","orderdetailid":443,"orderid":468,"productid":5,"quantity":1,"remainder":0.22,"simids":[],"type":2},{"areaname":"马尔代夫","effect_datetime":"2016-07-21 00:00:00","failure_datetime":"2016-08-25 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"上网卡+流量","orderdetailid":468,"orderid":493,"productid":5,"quantity":10,"remainder":34.22,"simids":[],"type":2},{"areaname":"马尔代夫","effect_datetime":"2016-07-21 00:00:00","failure_datetime":"2016-08-25 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"上网卡+流量","orderdetailid":470,"orderid":495,"productid":5,"quantity":10,"remainder":34.22,"simids":[],"type":2},{"areaname":"马尔代夫","effect_datetime":"2016-07-21 00:00:00","failure_datetime":"2016-08-25 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"上网卡+流量","orderdetailid":475,"orderid":500,"productid":5,"quantity":10,"remainder":34.22,"simids":[],"type":2},{"areaname":"马尔代夫","effect_datetime":"2016-07-21 00:00:00","failure_datetime":"2016-08-25 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"上网卡+流量","orderdetailid":477,"orderid":503,"productid":5,"quantity":10,"remainder":34.22,"simid":"100200300400500","simids":["100200300400500"],"type":2},{"areaname":"马尔代夫","effect_datetime":"2016-07-21 00:00:00","failure_datetime":"2016-08-25 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"上网卡+流量","orderdetailid":479,"orderid":505,"productid":5,"quantity":10,"remainder":34.22,"simids":[],"type":2},{"areaname":"马尔代夫","effect_datetime":"2016-07-22 00:00:00","failure_datetime":"2016-07-23 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"上网卡+流量","orderdetailid":523,"orderid":545,"productid":5,"quantity":1,"remainder":1.22,"simids":[],"type":2},{"effect_datetime":"2016-07-21 00:00:00","failure_datetime":"2016-07-31 23:59:59","phone":"13067783267","remainder":9.22}],"voiceavailable":{"remaindertime":2543,"totaltime":2700,"usedtime":157}},"sessionid":"f16f840f-5f55-41db-939c-8e0602089728","userid":1}
+用户的卡与可用流量套餐关联
+curl -d '{"userid":1,"sessionid":"f16f840f-5f55-41db-939c-8e0602089728","orderdetailid":477,"simid":"100200300400500"}' -H "Content-Type: application/json" http://localhost:8070/uc/services/cardtraffic_bind
+{"error_info":"成功","error_no":0,"result":{"servicepackage":{"areaname":"马尔代夫","effect_datetime":"2016-07-21 00:00:00","failure_datetime":"2016-08-25 23:59:59","logo":"images/201605/prd_imgs/124.png","name":"上网卡+流量","orderdetailid":477,"orderid":503,"productid":5,"quantity":10,"remainder":34.21,"simid":"100200300400500","simids":["100200300400500"],"type":2}},"sessionid":"f16f840f-5f55-41db-939c-8e0602089728","userid":1}
+curl -g "http://localhost:8070/uc/services/cardtraffic_bind?userid=1&sessionid=968258db-f2ee-4f57-9e60-2ae32dc7b865&orderdetailid=4701&simid=89442000127897144031"
+{"error_info":"数据卡不存在","error_no":1301,"result":{},"sessionid":"968258db-f2ee-4f57-9e60-2ae32dc7b865","userid":1}
+ curl -g "http://localhost:8070/uc/services/cardtraffic_bind?userid=1&sessionid=968258db-f2ee-4f57-9e60-2ae32dc7b865&orderdetailid=4701&simid=8944200012789714403"
+{"error_info":"订单详情不存在","error_no":1303,"result":{},"sessionid":"968258db-f2ee-4f57-9e60-2ae32dc7b865","userid":1}
+curl -g "http://localhost:8070/uc/services/cardtraffic_bind?userid=1&sessionid=968258db-f2ee-4f57-9e60-2ae32dc7b865&orderdetailid=475&simid=8944200012789714403"
+{"error_info":"订单详情已绑定","error_no":1302,"result":{},"sessionid":"968258db-f2ee-4f57-9e60-2ae32dc7b865","userid":1}
+curl -g "http://localhost:8070/uc/services/cardtraffic_bind?userid=1&sessionid=968258db-f2ee-4f57-9e60-2ae32dc7b865&orderdetailid=470&simid=8944200012789714403"
+{"error_info":"数据卡已绑定该时间段的套餐","error_no":1304,"result":{},"sessionid":"968258db-f2ee-4f57-9e60-2ae32dc7b865","userid":1}
+用户当前可用语音时长和专属号套餐
+{"error_info":"成功","error_no":0,"result":{"voiceavailable":{"remaindertime":446,"totaltime":600,"usedtime":154},"voicenumber":{"effect_datetime":"2016-07-15 00:00:00","failure_datetime":"2016-07-25 23:59:59","phone":"15557175002","remaindertime":10.18}},"sessionid":"ff5a57d3-cdec-4783-ac63-f16e0855f5e2","userid":1}
+更新订单配送
+ curl -d "userid=7&sessionid=9eef098b-575a-441e-9711-8f7076af73ca&orderid=6&obtainvoucher=false&shipping_id=1&shipping_address=4" http://192.168.0.49:8050/uc/services/order_shipping
+{"error_info":"成功","error_no":0,"result":{"order":{"createtime":"2016-06-15 18:57:52","id":6,"order_status":0,"pay_status":0,"price":385.95,"ship_address":4,"shipping_id":1,"shipping_status":0,"userid":7}},"sessionid":"9eef098b-575a-441e-9711-8f7076af73ca","userid":7}[root@192 uc-server-0.1]# 
+ curl -d "userid=7&sessionid=9eef098b-575a-441e-9711-8f7076af73ca&orderid=6&obtainvoucher=true&outletid=2&obtaintime=2016-06-17%2010:30:00" http://192.168.0.49:8050/uc/services/order_shipping
+{"error_info":"成功","error_no":0,"result":{"order":{"createtime":"2016-06-15 18:57:52","id":6,"obtaintime":"2016-06-17 10:30:00","obtainvoucher":true,"order_status":0,"outletid":2,"pay_status":0,"price":385.95,"ship_address":4,"shipping_id":1,"shipping_status":0,"userid":7}},"sessionid":"9eef098b-575a-441e-9711-8f7076af73ca","userid":7}
+更新订单支付
+ curl -d "userid=7&sessionid=9eef098b-575a-441e-9711-8f7076af73ca&orderid=6&payid=1&payvoucher=123451234512345" http://192.168.0.49:8050/uc/services/order_paying
+{"error_info":"成功","error_no":0,"result":{"order":{"createtime":"2016-06-15 18:57:52","id":6,"obtaintime":"2016-06-17 10:30:00","obtainvoucher":true,"order_status":0,"outletid":2,"pay_status":1,"payid":1,"paytime":"2016-06-15 20:28:02","payvoucher":"123451234512345","price":385.95,"ship_address":4,"shipping_id":1,"shipping_status":0,"userid":7}},"sessionid":"9eef098b-575a-441e-9711-8f7076af73ca","userid":7}
+支付宝支付
+curl -d "userid=7&sessionid=e759a222-9e99-4a04-ae07-c3e6262955a3&orderid=6&payid=2" http://192.168.0.49:8050/uc/services/order_paying
+<form id="alipaysubmit" name="alipaysubmit" action="https://mapi.alipay.com/gateway.do?_input_charset=utf-8" method="get"><input type="hidden" name="payment_type" value="1"/><input type="hidden" name="out_trade_no" value="6"/><input type="hidden" name="service" value="alipay.wap.create.direct.pay.by.user"/><input type="hidden" name="_input_charset" value="utf-8"/><input type="hidden" name="subject" value="上网卡流量,全球上网卡,全球上网卡"/><input type="hidden" name="total_fee" value="2954.50"/><input type="hidden" name="sign" value="4f27c517d3c1cc8365b95f451cef4275"/><input type="hidden" name="return_url" value="http://localhost:8080/alipay.wap.create.direct.pay.by.user-JAVA-UTF-8/return_url.jsp"/><input type="hidden" name="notify_url" value="http://localhost:8080/alipay.wap.create.direct.pay.by.user-JAVA-UTF-8/notify_url.jsp"/><input type="hidden" name="body" value="7:2977aa9d-febd-4ec0-925e-b4444617f931"/><input type="hidden" name="sign_type" value="MD5"/><input type="submit" value="确认" style="display:none;"></form><script>document.forms['alipaysubmit'].submit();</script>
+获取网点地址
+curl -d "userid=7&sessionid=96ccc559-7f66-4324-89b1-c03ae2792b37" http://localhost:8050/uc/services/outlet_gets
+{"error_info":"成功","error_no":0,"result":{"outlets":[{"address":"海创园顺帆科技园区荆长路768号5#703","cities":[{"id":31,"name":"浙江","pid":1,"type":1},{"id":383,"name":"杭州","pid":31,"type":2},{"id":3236,"name":"余杭区","pid":383,"type":3}],"city":383,"district":3236,"id":1,"mobile":"400-657-1858","name":"杭州络漫科技有限公司","province":31,"type":1},{"address":"萧山机场国际候机大厅","cities":[{"id":31,"name":"浙江","pid":1,"type":1},{"id":383,"name":"杭州","pid":31,"type":2},{"id":3235,"name":"萧山区","pid":383,"type":3}],"city":383,"district":3235,"id":2,"mobile":"0571-86662404","name":"萧山机场","province":31,"type":0},{"address":"浦东机场国际候机大厅","cities":[{"id":25,"name":"上海","pid":1,"type":1},{"id":321,"name":"上海","pid":25,"type":2},{"id":2707,"name":"浦东新区","pid":321,"type":3}],"city":321,"district":2707,"id":3,"mobile":"021-96990","name":"浦东机场","province":25,"type":0}]},"sessionid":"96ccc559-7f66-4324-89b1-c03ae2792b37","userid":7}
+curl -d "userid=7&sessionid=96ccc559-7f66-4324-89b1-c03ae2792b37&province=31" http://localhost:8050/uc/services/outlet_gets
+{"error_info":"成功","error_no":0,"result":{"outlets":[{"address":"海创园顺帆科技园区荆长路768号5#703","cities":[{"id":31,"name":"浙江","pid":1,"type":1},{"id":383,"name":"杭州","pid":31,"type":2},{"id":3236,"name":"余杭区","pid":383,"type":3}],"city":383,"district":3236,"id":1,"mobile":"400-657-1858","name":"杭州络漫科技有限公司","province":31,"type":1},{"address":"萧山机场国际候机大厅","cities":[{"id":31,"name":"浙江","pid":1,"type":1},{"id":383,"name":"杭州","pid":31,"type":2},{"id":3235,"name":"萧山区","pid":383,"type":3}],"city":383,"district":3235,"id":2,"mobile":"0571-86662404","name":"萧山机场","province":31,"type":0}]},"sessionid":"96ccc559-7f66-4324-89b1-c03ae2792b37","userid":7}
+curl -d "userid=7&sessionid=96ccc559-7f66-4324-89b1-c03ae2792b37&province=31&city=383" http://localhost:8050/uc/services/outlet_gets
+{"error_info":"成功","error_no":0,"result":{"outlets":[{"address":"海创园顺帆科技园区荆长路768号5#703","cities":[{"id":31,"name":"浙江","pid":1,"type":1},{"id":383,"name":"杭州","pid":31,"type":2},{"id":3236,"name":"余杭区","pid":383,"type":3}],"city":383,"district":3236,"id":1,"mobile":"400-657-1858","name":"杭州络漫科技有限公司","province":31,"type":1},{"address":"萧山机场国际候机大厅","cities":[{"id":31,"name":"浙江","pid":1,"type":1},{"id":383,"name":"杭州","pid":31,"type":2},{"id":3235,"name":"萧山区","pid":383,"type":3}],"city":383,"district":3235,"id":2,"mobile":"0571-86662404","name":"萧山机场","province":31,"type":0}]},"sessionid":"96ccc559-7f66-4324-89b1-c03ae2792b37","userid":7}
+获取我的电子券
+curl -d "userid=7&sessionid=bf08fca8-bac6-4424-9b1b-c2d97a41d600" http://localhost:8050/uc/services/evoucher_gets
+{"error_info":"成功","error_no":0,"result":{"evouchers":[{"evoucher_sn":1606140254,"evoucherid":1,"id":1,"image":"images/201605/evoucher_imgs/129.png","orderid":5,"userid":7},{"evoucher_sn":1606140258,"evoucherid":2,"id":2,"image":"images/201605/evoucher_imgs/130.png","orderid":5,"userid":7},{"evoucher_sn":1606140259,"evoucherid":3,"id":3,"image":"images/201605/evoucher_imgs/131.png","userid":7},{"evoucher_sn":1606140259,"evoucherid":4,"id":4,"image":"images/201605/evoucher_imgs/132.png","userid":7},{"evoucher_sn":1606140324,"evoucherid":5,"id":5,"image":"images/201605/evoucher_imgs/133.png","orderid":6,"used_datetime":"2016-06-16 03:16:42","userid":7},{"evoucher_sn":1606161800,"evoucherid":5,"id":6,"image":"images/201605/evoucher_imgs/134.png","userid":7},{"background":"images/201605/evoucher_imgs/126.png","description":"请在截止日前到萧山机场网点\r\n现场领取全球上网卡\r\n详细地址：浙江省杭州市萧山区\r\n萧山机场国际候机大厅","effect_datetime":"2016-06-22 06:43:51","evoucher_sn":25849419,"evoucherid":1,"failure_datetime":"2016-07-22 06:43:51","id":9,"image":"images/201606/evouchers_img/25849419.PNG","name":"提货券","orderid":6,"repeat":false,"userid":7}]},"sessionid":"bf08fca8-bac6-4424-9b1b-c2d97a41d600","userid":7}
+获取我的可用于当前订单的电子券
+curl -d "userid=7&sessionid=96ccc559-7f66-4324-89b1-c03ae2792b37&orderid=5" http://localhost:8050/uc/services/availevoucher_gets
+{"error_info":"成功","error_no":0,"result":{"evouchers":[{"evoucher":{"background":"images/201605/evoucher_imgs/128.png","effect_datetime":"2016-06-15 00:00:00","failure_datetime":"2016-09-15 00:00:00","id":5,"money":10,"name":"抵价券","prdevouchers":[],"repeat":false},"evoucher_sn":1606140324,"evoucherid":5,"id":5,"image":"images/201605/evoucher_imgs/133.png","userid":7}]},"sessionid":"96ccc559-7f66-4324-89b1-c03ae2792b37","userid":7}
+使用电子抵价券
+curl -d "userid=7&sessionid=d0744b8b-1ecb-4f62-a2c1-8bdff48d5b81&orderid=6&evoucherid=5" http://192.168.0.49:8050/uc/services/evoucher_discount
+{"error_info":"成功","error_no":0,"result":{"myevoucher":{"evoucher":{"background":"images/201605/evoucher_imgs/128.png","effect_datetime":"2016-06-15 00:00:00","failure_datetime":"2016-09-15 00:00:00","id":5,"money":10,"name":"抵价券","prdevouchers":[],"repeat":false},"evoucher_sn":1606140324,"evoucherid":5,"id":5,"image":"images/201605/evoucher_imgs/133.png","orderid":6,"used_datetime":"2016-06-16 03:16:42","userid":7},"order":{"createtime":"2016-06-15 18:57:52","discount":15.05,"id":6,"obtaintime":"2016-06-17 10:30:00","obtainvoucher":true,"order_status":0,"outletid":2,"pay_status":1,"payable_amount":385.95,"payid":1,"paytime":"2016-06-15 20:28:02","payvoucher":"123451234512345","price":401,"ship_address":4,"shipping_fee":5,"shipping_id":1,"shipping_status":0,"userid":7,"voucher_amount":10}},"sessionid":"d0744b8b-1ecb-4f62-a2c1-8bdff48d5b81","userid":7}
+绑定我的数据卡
+curl -d "userid=7&sessionid=e2be7004-fd7b-4d86-b7e7-6be9bd0e7946&datacardid=00210003" http://192.168.0.49:8050/uc/services/datacard_bind
+{"error_info":"成功","error_no":0,"result":{"datacard":{"iccid":"100200300400501","id":210003,"userid":7}},"sessionid":"e2be7004-fd7b-4d86-b7e7-6be9bd0e7946","userid":7}
+获取我的数据卡
+curl -d "userid=7&sessionid=e2be7004-fd7b-4d86-b7e7-6be9bd0e7946" http://192.168.0.49:8050/uc/services/datacard_gets
+{"error_info":"成功","error_no":0,"result":{"datacards":[{"iccid":"100200300400501","id":210003,"userid":7}]},"sessionid":"e2be7004-fd7b-4d86-b7e7-6be9bd0e7946","userid":7}
+解绑我的数据卡
+ curl -d "userid=7&sessionid=e2be7004-fd7b-4d86-b7e7-6be9bd0e7946&datacardid=00210003" http://192.168.0.49:8050/uc/services/datacard_unbind
+{"error_info":"成功","error_no":0,"sessionid":"e2be7004-fd7b-4d86-b7e7-6be9bd0e7946","userid":7}
+运维管理接口：
+数据卡入库
+curl -d '{"userid":7,"sessionid":"fb2c2793-ff39-403d-bd63-fa775d054473","datacardid":20160614,"iccid":"100200300400500"}' -H "Content-Type: application/json" http://localhost:8050/om/services/datacard_set
+{"error_info":"成功","error_no":0,"result":{"datacard":{"iccid":"100200300400500","id":20160614,"userid":0}},"sessionid":"fb2c2793-ff39-403d-bd63-fa775d054473","userid":7}
+curl -d '{"userid":7,"sessionid":"175f30ce-6eea-4748-b847-3c0f2a6e3280","iccid":"100200300400501"}' -H "Content-Type: application/json" http://localhost:8050/om/services/datacard_set
+络漫池设备配置
+curl -d '{"userid":7,"sessionid":"5b7f4498-7eb2-4846-a81d-ea6265337a49","devid":20160614,"hostname":"touchdev01","host":"192.168.2.100","domain":"120.55.192.228"}' -H "Content-Type: application/json" http://localhost:8050/om/services/touchdev_set
+{"error_info":"成功","error_no":0,"result":{"touch":{"devid":"touchdev01","domain":"120.55.192.228","host":"192.168.2.100","id":20160614,"userid":0}},"sessionid":"5b7f4498-7eb2-4846-a81d-ea6265337a49","userid":7}
+络漫池通道配置
+curl -d '{"userid":7,"sessionid":"67b31dc6-bee9-4321-aaeb-bff7cc0bffde","devid":20160614,"chans":[{"subid":1,"phone":"18667193709"}]}' -H "Content-Type: application/json" http://localhost:8050/om/services/touchchans_set
+{"error_info":"成功","error_no":0,"result":{"touchchans":[{"devid":20160614,"id":1,"phone":"18667193709","subid":1,"userid":0}]},"sessionid":"67b31dc6-bee9-4321-aaeb-bff7cc0bffde","userid":7}
+产品单价配置
+ curl -d '{"userid":7,"sessionid":"67b31dc6-bee9-4321-aaeb-bff7cc0bffde","productid":4,"price":60.5,"effect_datetime":"2016-06-14 00:00:00","failure_datetime":"2017-06-14 23:59:59"}' -H "Content-Type: application/json" http://localhost:8050/om/services/prdunitprice_set
+{"error_info":"成功","error_no":0,"result":{"prdunitprice":{"effect_datetime":"2016-06-14 00:00:00","failure_datetime":"2017-06-14 23:59:59","id":7,"price":60.5,"productid":4}},"sessionid":"67b31dc6-bee9-4321-aaeb-bff7cc0bffde","userid":7}
+curl -d '{"userid":7,"sessionid":"67b31dc6-bee9-4321-aaeb-bff7cc0bffde","unitpriceid":7,"productid":4,"price":60.2,"effect_datetime":"2016-06-14 00:00:00","failure_datetime":"2017-06-14 23:59:59"}' -H "Content-Type: application/json" http://localhost:8050/om/services/prdunitprice_set
+{"error_info":"成功","error_no":0,"result":{"prdunitprice":{"effect_datetime":"2016-06-14 00:00:00","failure_datetime":"2017-06-14 23:59:59","id":7,"price":60.2,"productid":4}},"sessionid":"67b31dc6-bee9-4321-aaeb-bff7cc0bffde","userid":7}
+验证提货券
+ curl -d "userid=7&sessionid=58a03be7-c6d2-4d93-abc0-ce306450ce65&evoucher_sn=25849419" http://localhost:8050/om/services/deliveryvoucher_verify
+{"error_info":"成功","error_no":0,"result":{"order":{"createtime":"2016-06-15 18:57:52","discount":15.05,"id":6,"obtaintime":"2016-06-17 10:30:00","obtainvoucher":true,"order_status":0,"orderdetails":[{"discount":95,"id":5,"odprdattrs":[{"name":"国家地区","price":"","value":"马尔代夫","varname":"areaname"},{"name":"开始时间","price":"","value":"2016-06-18 00:00:00","varname":"effect_datetime"},{"name":"结束时间","price":"","value":"2016-06-27 23:59:59","varname":"failure_datetime"},{"name":"生成电子券","price":"","value":"true","varname":"genevoucher"}],"orderid":6,"productid":2,"quantity":1,"quantity_per_unit":10,"unit_price":301},{"discount":100,"id":6,"orderid":6,"productid":1,"quantity":1,"quantity_per_unit":1,"unit_price":50},{"discount":100,"id":7,"orderid":6,"productid":1,"quantity":1,"quantity_per_unit":1,"unit_price":50}],"outletid":2,"pay_status":1,"payable_amount":385.95,"payid":1,"paytime":"2016-06-15 20:28:02","payvoucher":"123451234512345","price":401,"ship_address":4,"shipping_fee":5,"shipping_id":1,"shipping_status":0,"userid":7,"voucher_amount":10},"user":{"createTime":1464170903602,"password":"123456","phone":"13967124998","status":1,"userid":"zhengsj"}},"sessionid":"58a03be7-c6d2-4d93-abc0-ce306450ce65","userid":7}
+
+店员账户初始密码登录
+https://www.roam-tech.com/uc/services/login?username=82936715&password=666666
+{"error_info":"初始密码需要修改","error_no":1014,"result":{"status":1,"type":1,"username":"82936715"},"sessionid":"6cf88c0b-9291-4efd-83df-71ef26133489","userid":125}
+修改密码
+https://www.roam-tech.com/uc/services/change_password?userid=125&sessionid=6cf88c0b-9291-4efd-83df-71ef26133489&opassword=666666&npassword=123456
+https://www.roam-tech.com/uc/services/login?username=82936715&password=123456
+{"error_info":"成功","error_no":0,"result":{"status":1,"type":1,"username":"82936715"},"sessionid":"e8cdcd51-2a60-47c3-ad80-a8f0f5ef1c51","userid":125}
+管理员
+"sessionid":"cbfa058f-b6c8-4075-97b2-cd4b448ba806","userid":100}
+3.13	运营人员获取订单信息
+curl -g "http://localhost:8070/om/services/order_gets?userid=100&sessionid=cbfa058f-b6c8-4075-97b2-cd4b448ba806&group=1&pageindex=0&pagesize=10"
+{
+    "error_info": "成功",
+    "error_no": 0,
+    "result": {
+        "orders": [
+            {
+                "createtime": "2016-07-07 15:00:07",
+                "discount": 0,
+                "id": 37,
+                "obtainvoucher": true,
+                "order_status": 0,
+                "orderdetails": [
+                    {
+                        "discount": 100,
+                        "id": 33,
+                        "orderid": 37,
+                        "productid": 1,
+                        "quantity": 1,
+                        "quantity_per_unit": 1,
+                        "unit_price": 0.01
+                    }
+                ],
+                "outletid": 2,
+                "paidmoney": 0.01,
+                "pay_status": 2,
+                "payable_amount": 0.01,
+                "payid": 2,
+                "paytime": "2016-07-07 15:00:44",
+                "payvoucher": "2016070721001004210215829676",
+                "price": 0.01,
+                "ship_address": 2,
+                "shipping_fee": 0,
+                "shipping_id": 1,
+                "shipping_status": 0,
+                "userid": 1
+            },
+            {
+                "createtime": "2016-07-21 10:14:36",
+                "discount": 0,
+                "id": 396,
+                "obtainvoucher": true,
+                "order_status": 0,
+                "orderdetails": [
+                    {
+                        "discount": 0,
+                        "id": 371,
+                        "orderid": 396,
+                        "productid": 1,
+                        "quantity": 1,
+                        "quantity_per_unit": 1,
+                        "unit_price": 0.01
+                    }
+                ],
+                "outletid": 1,
+                "paidmoney": 0.01,
+                "pay_status": 2,
+                "payable_amount": 0.01,
+                "payid": 2,
+                "paytime": "2016-07-26 14:39:49",
+                "payvoucher": "2016072621001004590241804556",
+                "price": 0.01,
+                "ship_address": 35,
+                "shipping_fee": 0,
+                "shipping_id": 1,
+                "shipping_status": 0,
+                "userid": 3
+            },
+            {
+                "createtime": "2016-07-21 18:00:16",
+                "discount": 0,
+                "id": 496,
+                "obtainvoucher": false,
+                "order_status": 0,
+                "orderdetails": [
+                    {
+                        "discount": 0,
+                        "id": 471,
+                        "orderid": 496,
+                        "productid": 1,
+                        "quantity": 1,
+                        "quantity_per_unit": 1,
+                        "unit_price": 0.01
+                    }
+                ],
+                "outletid": 2,
+                "paidmoney": 0.08,
+                "pay_status": 2,
+                "payable_amount": 0.01,
+                "payid": 2,
+                "paytime": "2016-07-21 21:19:21",
+                "payvoucher": "2016072121001004210263479925",
+                "price": 0.01,
+                "ship_address": 26,
+                "shipping_fee": 10,
+                "shipping_id": 1,
+                "shipping_status": 0,
+                "userid": 1
+            },
+            {
+                "createtime": "2016-07-27 19:49:34",
+                "discount": 0,
+                "id": 640,
+                "obtainvoucher": true,
+                "order_status": 0,
+                "orderdetails": [
+                    {
+                        "discount": 0,
+                        "id": 633,
+                        "orderid": 640,
+                        "productid": 1,
+                        "quantity": 1,
+                        "quantity_per_unit": 1,
+                        "unit_price": 0.01
+                    }
+                ],
+                "outletid": 1,
+                "paidmoney": 0.01,
+                "pay_status": 2,
+                "payable_amount": 0.01,
+                "payid": 2,
+                "paytime": "2016-07-27 19:51:49",
+                "payvoucher": "2016072721001004590258371643",
+                "price": 0.01,
+                "ship_address": 17,
+                "shipping_fee": 0,
+                "shipping_id": 1,
+                "shipping_status": 0,
+                "userid": 2
+            }
+        ]
+    },
+    "sessionid": "cbfa058f-b6c8-4075-97b2-cd4b448ba806",
+    "userid": 100
+}
+3.14	卡出库时与订单关联
+curl -g "http://localhost:8070/om/services/cardorder_bind?userid=100&sessionid=cbfa058f-b6c8-4075-97b2-cd4b448ba806&orderid=37&simid=8944200012789714353"
+{
+    "error_info": "成功",
+    "error_no": 0,
+    "result": {
+        "order": {
+            "createtime": "2016-07-07 15:00:07",
+            "discount": 0,
+            "id": 37,
+            "obtainvoucher": true,
+            "order_status": 0,
+            "orderdetails": [
+                {
+                    "discount": 100,
+                    "id": 33,
+                    "odprdattrs": [
+                        {
+                            "value": "8944200012789714353",
+                            "varname": "simid"
+                        }
+                    ],
+                    "orderid": 37,
+                    "productid": 1,
+                    "quantity": 1,
+                    "quantity_per_unit": 1,
+                    "unit_price": 0.01
+                }
+            ],
+            "outletid": 2,
+            "paidmoney": 0.01,
+            "pay_status": 2,
+            "payable_amount": 0.01,
+            "payid": 2,
+            "paytime": "2016-07-07 15:00:44",
+            "payvoucher": "2016070721001004210215829676",
+            "price": 0.01,
+            "ship_address": 2,
+            "shipping_fee": 0,
+            "shipping_id": 1,
+            "shipping_status": 0,
+            "userid": 1
+        }
+    },
+    "sessionid": "cbfa058f-b6c8-4075-97b2-cd4b448ba806",
+    "userid": 100
+}
+3.15	订单已发货
+curl -g "http://localhost:8070/om/services/order_shipped?userid=100&sessionid=cbfa058f-b6c8-4075-97b2-cd4b448ba806&orderid=37&invoice_no=123412341234"
+{
+    "error_info": "成功",
+    "error_no": 0,
+    "result": {
+        "order": {
+            "createtime": "2016-07-07 15:00:07",
+            "discount": 0,
+            "id": 37,
+            "invoice_no": "123412341234",
+            "obtainvoucher": true,
+            "order_status": 0,
+            "outletid": 2,
+            "paidmoney": 0.01,
+            "pay_status": 2,
+            "payable_amount": 0.01,
+            "payid": 2,
+            "paytime": "2016-07-07 15:00:44",
+            "payvoucher": "2016070721001004210215829676",
+            "price": 0.01,
+            "ship_address": 2,
+            "shipping_fee": 0,
+            "shipping_id": 1,
+            "shipping_status": 1,
+            "shippingtime": "2016-07-28 05:06:14",
+            "userid": 1
+        }
+    },
+    "sessionid": "cbfa058f-b6c8-4075-97b2-cd4b448ba806",
+    "userid": 100
+}
+2.58	信诚分期开通
+curl -d '{"sessionid":"6a0208c4-9275-460f-b386-2d1f0a953389","userid":1}' -H "Content-Type: application/json;charset=utf8" http://localhost:8070/uc/services/credtrip_open
+<!DOCTYPE html><html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>跳轉至支付網關</title></head><body><form id="credtripsubmit" name="credtripsubmit" action="https://api-test.credtrip.com/gateway/gw/open" method="post"><input type="hidden" name="product" value="01"/><input type="hidden" name="merchantId" value="2016010003"/><input type="hidden" name="mobile" value="13967124998"/><input type="hidden" name="sign" value="4c4df00e62ff7d8efb9dcac5473044c2"/><input type="hidden" name="notifyUrl" value="http://www.roam-tech.com/uc/services/credtrip/notify"/><input type="hidden" name="signType" value="MD5"/><input type="hidden" name="returnUrl" value="http://www.roam-tech.com/roammall/views/market/pay_success.html"/><input type="hidden" name="version" value="1.0"/><input type="hidden" name="userId" value="1"/><input type="submit" value="确认" style="display:none;"></form><script>document.forms['credtripsubmit'].submit();</script></body></html>
+2.60	信诚分期信用额度查询
+curl -d '{"sessionid":"6a0208c4-9275-460f-b386-2d1f0a953389","userid":1}' -H "Content-Type: application/json;charset=utf8" http://localhost:8070/uc/services/credtrip/credit_query
+{"error_info":"成功","error_no":0,"result":{"credtripcredit":{"accountno":"80","balcredit":14000.00,"credit":14000.00,"status":"ACTIVE"}},"sessionid":"6a0208c4-9275-460f-b386-2d1f0a953389","userid":1}

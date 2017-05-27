@@ -1,0 +1,40 @@
+
+使用帮助（参考DEMO工程）
+1、将解压以后LIB里的jar包拷贝DEMO工程里lib文件下并构建到路径里
+2、打开DEMO工程里的测试类 将调用CCPRestSDK的init和相关功能接口，参数换成实际的参数即可
+
+
+接口说明
+
+ /**
+	 * 初始化服务地址和端口  地址须为sandboxapp.cloopen.com 无需带协议头，目前默认是https协议
+	 * @param serverIP     		必选参数		服务器地址 
+	 * @param serverPort		必选参数		服务器端口
+	 */
+	public void init(String serverIP, String serverPort)
+  
+  
+  /**
+	 * 初始化主帐号信息
+	 * @param accountSid		必选参数		主帐号名称
+	 * @param accountToken		必选参数		主账号令牌
+	 */
+	public void setAccount(String accountSid, String accountToken)
+
+	
+	/**
+	 * 初始化应用Id	
+	 * @param appId			必选参数	 	应用Id
+	 */
+	public void setAppId(String appId)
+	
+  
+ /**
+   * 发送短信模板请求
+   * @param to				必选参数   		短信接收端手机号码集合，用英文逗号分开，每批发送的手机号数量不得超过100个
+   * @param templateId			必选参数		模板Id , 测试应用和未上线应用使用测试模板请填写1，正式应用上线后填写已申请审核通过的模板ID
+   * @param datas			可选参数		内容数据，用于替换模板中{序号}
+   * @return
+   */
+  public HashMap sendTemplateSMS(String to, String templateId, String[] datas)
+   

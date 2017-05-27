@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="hsid-server" packages="" monitorInterval="30">
+  <Appenders>
+    <NoSql name="kafkaBizLogger">
+      <Kafka topic="hsid-bizlog" brokerList="10.253.4.193:9092,10.253.4.92:9092,10.253.4.144:9092"
+             zookeeperConnect="10.253.4.193:2181,10.253.4.92:2181,10.253.4.144:2181" groupId="hsid"
+             producerType="async" compressionCodec="snappy" queueBufferingMaxMs="500" 
+             queueBufferingMaxMessage="100000" batchNumMessages="5000" >
+          <KeyValuePair key="app_name" value="hsid-server" />
+          <KeyValuePair key="company_id" value="91000" />
+          <KeyValuePair key="businsys_no" value="5500" />
+      </Kafka>
+    </NoSql>
+    <NoSql name="kafkaSysLogger">
+      <Kafka topic="hsid-syslog" brokerList="10.253.4.193:9092,10.253.4.92:9092,10.253.4.144:9092"
+             zookeeperConnect="10.253.4.193:2181,10.253.4.92:2181,10.253.4.144:2181" groupId="hsid"
+             producerType="async" compressionCodec="snappy" queueBufferingMaxMs="500" 
+             queueBufferingMaxMessage="100000" batchNumMessages="5000" >
+          <KeyValuePair key="app_name" value="hsid-server" />
+          <KeyValuePair key="company_id" value="91000" />
+          <KeyValuePair key="businsys_no" value="5500" />
+      </Kafka>    
+    </NoSql>    
+    <Async name="AsyncKafkaLogger">
+      <AppenderRef ref="kafkaBizLogger"/>
+    </Async>
+    <Console name="STDOUT">
+      <PatternLayout pattern="%d [%p] %c %m%n"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <AsyncLogger name="com.hundsun.arescloud.hsid.handler" level="info" additivity="false" >
+      <AppenderRef ref="kafkaBizLogger"/>
+    </AsyncLogger>
+    <AsyncLogger name="root" level="error" additivity="false">
+      <AppenderRef ref="kafkaSysLogger"/>
+    </AsyncLogger>
+  </Loggers>
+</Configuration>

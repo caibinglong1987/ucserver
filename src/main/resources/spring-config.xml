@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Licensed to Jasig under one or more contributor license
+    agreements. See the NOTICE file distributed with this work
+    for additional information regarding copyright ownership.
+    Jasig licenses this file to you under the Apache License,
+    Version 2.0 (the "License"); you may not use this file
+    except in compliance with the License.  You may obtain a
+    copy of the License at the following location:
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--  <bean id="springEhCacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+        <property name="cacheManager" ref="ehcacheManager"/>
+    </bean>
+
+    
+    <bean id="ehcacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+        <property name="configLocation" value="classpath:ehcache/ehcache.xml"/>
+    </bean>-->
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:resources.properties"/>
+    <context:component-scan base-package="com.roamtech.uc">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+	<context:component-scan base-package="com.tenpay">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+    <bean id="ucCacheManager" class="com.roamtech.uc.cache.RDRedisCacheManager">
+	<constructor-arg index="0">
+	<map>
+           <entry key="host" value="${couchbase.host}" />
+           <entry key="bucket" value="${couchbase.bucket}" />
+           <entry key="password" value="${couchbase.password}" />
+           <entry key="namespace" value="${couchbase.namespace}" />
+       </map>
+    </constructor-arg>
+    <constructor-arg index="1" value="classpath:com/roamtech/uc/cache/ehcache.xml" />
+    <constructor-arg index="2" value="10000" />
+    </bean>
+
+    <bean id="ucRestSms" class="com.roamtech.uc.handler.RestSMSHandler">
+	<constructor-arg index="0">
+	<map>
+           <entry key="server" value="${restsms.server}" />
+           <entry key="account_sid" value="${restsms.account_sid}" />
+           <entry key="auth_token" value="${restsms.auth_token}" />
+           <entry key="app_id" value="${restsms.app_id}" />
+           <entry key="template_id" value="${restsms.template_id}" />
+       </map>
+    </constructor-arg>
+    </bean>
+    <bean id="omService" class="com.roamtech.uc.handler.om.OMServiceImpl">
+		<property name="nodeid" value="1"/>
+		<property name="nodenum" value="2"/>
+    </bean>
+    <bean id="ucService" class="com.roamtech.uc.handler.UCServiceImpl">
+		<property name="nodeid" value="1"/>
+		<property name="nodenum" value="2"/>
+		<property name="snlen" value="8"/>
+		<property name="released" value="true"/>
+    </bean>
+    <bean id="bssApis" class="com.roamtech.uc.client.BssApisImpl">
+		<property name="bssApiUri" value="${bssapis.bssbaseuri}"/>
+		<property name="userName" value="${bssapis.username}"/>
+		<property name="password" value="${bssapis.password}"/>
+		<property name="pagesize" value="${bssapis.pagesize}"/>
+		<property name="hkApiUri" value="${bssapis.hkapiuri}"/>
+    </bean>
+	<bean id="ucSystemMsgClient" class="com.roamtech.uc.jainsip.UCSystemMsgClient">
+		<property name="username" value="${sip.username}"/>
+		<property name="displayName" value="${sip.displayname}"/>
+		<property name="sipIp" value="${sip.ip}"/>
+		<property name="port" value="${sip.port}"/>
+		<property name="proxy" value="${sip.proxy}"/>
+		<property name="publicproxy" value="${sip.publicproxy}"/>
+		<property name="welcome" value="${sip.welcome}"/>
+	</bean>
+	<bean id="roamtechApis" class="com.roamtech.uc.client.RoamtechApisImpl">
+		<property name="roamApiUri" value="${roamsdk.api_uri}"/>
+	</bean>
+	<!-- HttpClient管理器 -->
+	<bean id="httpClientManager" class="com.roamtech.uc.util.HttpClientManager">
+		<property name="clientConfigs">
+			<list>
+				<map>
+					<entry key="name" value="${resource.httpclient.ucserver.name}" />
+					<entry key="maxThreads" value="${resource.httpclient.ucserver.maxthreads}" />
+					<entry key="maxConnections" value="${resource.httpclient.ucserver.maxconnections}" />
+					<entry key="timeout" value="${resource.httpclient.ucserver.timeout}" />
+				</map>
+			</list>
+		</property>
+	</bean>
+	<bean id="sessionHandler" class="com.roamtech.uc.cache.handler.SessionHandler">
+		<property name="sessionIdleTimeout" value="${session.idletimeout}"/>
+	</bean>
+    <!-- 导入持久层配置 -->
+	<import resource="classpath:spring-config-repository.xml" />
+	<!-- 导入定时任务配置 -->
+	<import resource="classpath:spring-config-task.xml" />
+    <bean id="Server" class="org.eclipse.jetty.server.Server" init-method="start" destroy-method="stop">
+        <property name="connectors">
+            <list>
+                <bean id="Connector" class="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                    <property name="port" value="${protocol.port}" />
+                </bean>
+            </list>
+        </property>
+
+        <property name="handler">
+        	<bean id="handlers" class="org.eclipse.jetty.server.handler.HandlerCollection">
+        	  <property name="handlers">
+        	  <list>
+	            <bean id="handlerlist" class="org.eclipse.jetty.server.handler.HandlerList">
+	                <property name="handlers">
+	                    <list>
+	                        <bean class="com.roamtech.uc.handler.UCServiceHandler">
+		                        <property name="handlers">
+			                        <map>
+			                        <entry key="credtrip/notify"><bean class="com.roamtech.uc.handler.services.CredtripNotifyService" /></entry>
+			                        <entry key="credtrip_open"><bean class="com.roamtech.uc.handler.services.CredtripOpenService" /></entry>
+			                        <entry key="credtrip/credit_query"><bean class="com.roamtech.uc.handler.services.CredtripQueryCreditService" /></entry>
+									<entry key="malipay/notify"><bean class="com.roamtech.uc.handler.services.AlipayNotifyService" /></entry>
+			                        <entry key="alipay/notify"><bean class="com.roamtech.uc.handler.services.AlipayNotifyService" /></entry>
+									<entry key="wxpay/notify"><bean class="com.roamtech.uc.handler.services.WXpayNotifyService" /></entry>
+									<entry key="wxmp/token"><bean class="com.roamtech.uc.handler.services.WXMPTokenService" /></entry>
+									<entry key="xc_pay/notify"><bean class="com.roamtech.uc.handler.services.XCNotifyUrlService" /></entry>
+			                        <entry key="roamchat_upgrade_check"><bean class="com.roamtech.uc.handler.services.RoamchatCheckUpgradeService" /></entry>
+			                        <entry key="touch_upgrade_check"><bean class="com.roamtech.uc.handler.services.TouchCheckUpgradeService" /></entry>
+			                        <entry key="touchinfo_get"><bean class="com.roamtech.uc.handler.services.TouchInfoGetService" /></entry>
+			                        <entry key="touchvoicepkg_get"><bean class="com.roamtech.uc.handler.services.TouchVoicePkgGetService" /></entry>
+			                        <entry key="checkcode_get"><bean class="com.roamtech.uc.handler.services.CheckCodeService" /></entry>
+			                        <entry key="register"><bean class="com.roamtech.uc.handler.services.RegisterService" /></entry>
+			                        <entry key="register_precheck"><bean class="com.roamtech.uc.handler.services.RegisterPreCheckService" /></entry>
+			                        <entry key="phone_bind"><bean class="com.roamtech.uc.handler.services.PhoneBindService" /></entry>
+			                        <entry key="login"><bean class="com.roamtech.uc.handler.services.LoginService" /></entry>
+			                        <entry key="logout"><bean class="com.roamtech.uc.handler.services.LogoutService" /></entry>
+			                        <entry key="change_password"><bean class="com.roamtech.uc.handler.services.ChangePasswordService" /></entry>
+			                        <entry key="reset_password"><bean class="com.roamtech.uc.handler.services.ResetPasswordService" /></entry>
+			                        <entry key="touch_bind"><bean class="com.roamtech.uc.handler.services.TouchBindService" /></entry>
+			                        <entry key="touch_unbind"><bean class="com.roamtech.uc.handler.services.TouchUnbindService" /></entry>
+			                        <entry key="phone_gets"><bean class="com.roamtech.uc.handler.services.PhoneGetsService" /></entry>
+			                        <entry key="touch_gets"><bean class="com.roamtech.uc.handler.services.TouchGetsService" /></entry>
+
+			                        <entry key="city_gets"><bean class="com.roamtech.uc.handler.services.CityGetsService" /></entry>
+			                        <entry key="shipping_gets"><bean class="com.roamtech.uc.handler.services.ShippingGetsService" /></entry>
+			                        <entry key="payment_gets"><bean class="com.roamtech.uc.handler.services.PaymentGetsService" /></entry>
+			                        <entry key="shippingarea_gets"><bean class="com.roamtech.uc.handler.services.ShippingAreaGetsService" /></entry>
+			                        <entry key="areacode_gets"><bean class="com.roamtech.uc.handler.services.AreaCodeGetsService" /></entry>
+			                        <entry key="areagroup_gets"><bean class="com.roamtech.uc.handler.services.AreaGroupGetsService" /></entry>
+			                        <entry key="company_gets"><bean class="com.roamtech.uc.handler.services.CompanyGetsService" /></entry>
+			                        <entry key="role_gets"><bean class="com.roamtech.uc.handler.services.RoleGetsService" /></entry>
+
+			                        <entry key="store_gets"><bean class="com.roamtech.uc.handler.services.StoreGetsService" /></entry>
+			                        <entry key="product_gets"><bean class="com.roamtech.uc.handler.services.ProductGetsService" /></entry>
+			                        <entry key="prdcategory_gets"><bean class="com.roamtech.uc.handler.services.PrdCategoryGetsService" /></entry>
+			                        <entry key="prdbrand_gets"><bean class="com.roamtech.uc.handler.services.PrdBrandGetsService" /></entry>
+			                        <entry key="prdunitprice_gets"><bean class="com.roamtech.uc.handler.services.PrdUnitPriceGetsService" /></entry>
+			                        <entry key="prddiscount_gets"><bean class="com.roamtech.uc.handler.services.PrdDiscountGetsService" /></entry>
+			                        <entry key="cart_gets"><bean class="com.roamtech.uc.handler.services.CartGetsService" /></entry>
+			                        <entry key="cart_set"><bean class="com.roamtech.uc.handler.services.CartSetService" /></entry>
+			                        <entry key="cart_delete"><bean class="com.roamtech.uc.handler.services.CartDeleteService" /></entry>
+			                        <entry key="address_gets"><bean class="com.roamtech.uc.handler.services.AddressGetsService" /></entry>
+			                        <entry key="address_set"><bean class="com.roamtech.uc.handler.services.AddressSetService" /></entry>
+			                        <entry key="address_delete"><bean class="com.roamtech.uc.handler.services.AddressDeleteService" /></entry>
+			                        <entry key="order_gets"><bean class="com.roamtech.uc.handler.services.OrderGetsService" /></entry>
+			                        <entry key="order_submit"><bean class="com.roamtech.uc.handler.services.OrderSubmitService" /></entry>
+			                        <entry key="order_cancel"><bean class="com.roamtech.uc.handler.services.OrderCancelService" /></entry>
+									<entry key="order_confirm"><bean class="com.roamtech.uc.handler.services.OrderConfirmService" /></entry>
+			                        <entry key="order_shipping"><bean class="com.roamtech.uc.handler.services.OrderShippingService" /></entry>
+									<entry key="order_received"><bean class="com.roamtech.uc.handler.services.OrderReceivedService" /></entry>
+			                        <entry key="order_invoice"><bean class="com.roamtech.uc.handler.services.OrderInvoiceService" /></entry>
+			                        <entry key="order_paying">
+			                        	<bean class="com.roamtech.uc.handler.services.OrderPayingService">
+				                        	<property name="alipayNotifyUrl" value="${malipy.notifyurl.test}"/>
+				                        	<property name="wxpayNotifyUrl" value="${wxpay.notifyurl.test}"/>
+                                            <property name="XCPayNotifyUrl" value="${xc_pay.notifyurl.test}"/>
+											<property name="Md5Key" value="${xc_pay.md5Key.test}"/>
+											<property name="Domain" value="${xc_pay.domain.test}"/>
+			                        	</bean>
+									</entry>
+			                        <entry key="orderdetail_set"><bean class="com.roamtech.uc.handler.services.OrderDetailSetService" /></entry>
+			                        <entry key="trafficvoice_get"><bean class="com.roamtech.uc.handler.services.TrafficVoiceGetService" /></entry>
+			                        <entry key="voiceavailable_get"><bean class="com.roamtech.uc.handler.services.VoiceGetService" /></entry>
+			                        <entry key="alltrafficvoice_get"><bean class="com.roamtech.uc.handler.services.AllTrafficVoiceGetsService" /></entry>
+			                        <entry key="cardtraffic_bind"><bean class="com.roamtech.uc.handler.services.TrafficBindCardService" /></entry>
+
+			                        <entry key="outlet_gets"><bean class="com.roamtech.uc.handler.services.OutletGetsService" /></entry>
+			                        <entry key="evoucher_gets"><bean class="com.roamtech.uc.handler.services.EVoucherGetsService" /></entry>
+			                        <entry key="availevoucher_gets"><bean class="com.roamtech.uc.handler.services.AvailEVoucherGetsService" /></entry>
+			                        <entry key="evoucher_discount"><bean class="com.roamtech.uc.handler.services.EVoucherDiscountService" /></entry>
+									<entry key="evouchersn_exchange"><bean class="com.roamtech.uc.handler.services.EVoucherSNExchangeService" /></entry>
+			                        <entry key="datacard_bind"><bean class="com.roamtech.uc.handler.services.DataCardBindService" /></entry>
+			                        <entry key="datacard_unbind"><bean class="com.roamtech.uc.handler.services.DataCardUnbindService" /></entry>
+			                        <entry key="datacard_gets"><bean class="com.roamtech.uc.handler.services.DataCardGetsService" /></entry>
+
+			                        <entry key="is_username_exist"><bean class="com.roamtech.uc.handler.services.IsUserNameExistService" /></entry>
+			                        <entry key="is_mobile_exist"><bean class="com.roamtech.uc.handler.services.IsMobileExistService" /></entry>
+			                        <entry key="is_email_exist"><bean class="com.roamtech.uc.handler.services.IsEmailExistService" /></entry>
+			                        <entry key="change_mobile"><bean class="com.roamtech.uc.handler.services.ChangeMobileService" /></entry>
+			                        <entry key="change_email"><bean class="com.roamtech.uc.handler.services.ChangeEmailService" /></entry>
+			                        <entry key="user_info"><bean class="com.roamtech.uc.handler.services.UserInfoService" /></entry>
+			                        <entry key="freeze"><bean class="com.roamtech.uc.handler.services.FreezeService" /></entry>
+			                        <entry key="unfreeze"><bean class="com.roamtech.uc.handler.services.UnFreezeService" /></entry>
+			                        <entry key="homepage_gets"><bean class="com.roamtech.uc.handler.services.HomepageGetsService" /></entry>
+
+									<entry key="refund_gets"><bean class="com.roamtech.uc.handler.services.RefundGetsService" /></entry>
+									<entry key="refundreason_gets"><bean class="com.roamtech.uc.handler.services.RefundReasonGetsService" /></entry>
+									<entry key="refund"><bean class="com.roamtech.uc.handler.services.RefundService" /></entry>
+									<entry key="refund_shipping"><bean class="com.roamtech.uc.handler.services.RefundShippingService" /></entry>
+									<entry key="call_message_gets"><bean class="com.roamtech.uc.handler.services.CallMessageGetService" /></entry>
+									<entry key="token_get"><bean class="com.roamtech.uc.handler.services.TokenService" /></entry>
+									<entry key="get_roamsdk_token"><bean class="com.roamtech.uc.handler.services.SDKTokenService">
+										<property name="appId" value="${roamsdk.app_id}"/>
+										<property name="appKey" value="${roamsdk.app_key}"/>
+									</bean></entry>
+									<entry key="call_delete"><bean class="com.roamtech.uc.handler.services.CallRecordDeleteService" /></entry>
+									<entry key="message_delete"><bean class="com.roamtech.uc.handler.services.MessageRecordDeleteService" /></entry>
+									<entry key="call_message_delete"><bean class="com.roamtech.uc.handler.services.CallOrMessageDeleteService" /></entry>
+									<entry key="message_group_delete"><bean class="com.roamtech.uc.handler.services.MessageRecordGroupDeleteService" /></entry>
+									<entry key="bell_get"><bean class="com.roamtech.uc.handler.services.BellGetService" /></entry>
+									<entry key="contact_update"><bean class="com.roamtech.uc.handler.services.ContactUpdateService" /></entry>
+									<entry key="message_gets"><bean class="com.roamtech.uc.handler.services.MessageRecordGetsService" /></entry>
+									<entry key="message_group_gets"><bean class="com.roamtech.uc.handler.services.MessageRecordGroupGetsService" /></entry>
+									<entry key="call_gets"><bean class="com.roamtech.uc.handler.services.CallRecordGetsService" /></entry>
+									<entry key="call_group_gets"><bean class="com.roamtech.uc.handler.services.CallRecordGroupGetsService" /></entry>
+									<entry key="call_group_delete"><bean class="com.roamtech.uc.handler.services.CallRecordGroupDeleteService" /></entry>
+									<entry key="account_associate"><bean class="com.roamtech.uc.handler.services.AccountAssociateService" /></entry>
+									<entry key="sip_domain_gets"><bean class="com.roamtech.uc.handler.services.SipDomainGetsService" /></entry>
+									<entry key="blacklist_get"><bean class="com.roamtech.uc.handler.services.BlackListGetService" /></entry>
+									<entry key="blacklist_add"><bean class="com.roamtech.uc.handler.services.BlackListAddService" /></entry>
+									<entry key="blacklist_delete"><bean class="com.roamtech.uc.handler.services.BlackListDeleteService" /></entry>
+									</map>
+		                        </property>
+	                        </bean>
+	                        <bean class="com.roamtech.uc.handler.om.OMServiceHandler">
+		                        <property name="handlers">
+			                        <map>
+			                        <entry key="deliveryvoucher_verify"><bean class="com.roamtech.uc.handler.om.services.DeliveryVoucherVerifyService" /></entry>
+			                        <entry key="deliveryvoucher_complete"><bean class="com.roamtech.uc.handler.om.services.DeliveryVoucherCompleteService" /></entry>
+			                        <entry key="touchdev_set"><bean class="com.roamtech.uc.handler.om.services.TouchDevSetService" /></entry>
+			                        <entry key="touchchans_set"><bean class="com.roamtech.uc.handler.om.services.TouchChansSetService" /></entry>
+			                        <entry key="touchdev_gets"><bean class="com.roamtech.uc.handler.om.services.TouchDevGetsService" /></entry>
+			                        <entry key="datacard_set"><bean class="com.roamtech.uc.handler.om.services.DataCardSetService" /></entry>
+			                        <entry key="prdunitprice_set"><bean class="com.roamtech.uc.handler.om.services.PrdUnitPriceSetService" /></entry>
+			                        <entry key="prddiscount_set"><bean class="com.roamtech.uc.handler.om.services.PrdDiscountSetService" /></entry>
+			                        <entry key="account_create"><bean class="com.roamtech.uc.handler.om.services.AccountCreateService" /></entry>
+			                        <entry key="account_delete"><bean class="com.roamtech.uc.handler.om.services.AccountDeleteService" /></entry>
+			                        <entry key="order_gets"><bean class="com.roamtech.uc.handler.om.services.OMOrderGetsService" /></entry>
+			                        <entry key="cardorder_bind"><bean class="com.roamtech.uc.handler.om.services.OrderBindCardService" /></entry>
+			                        <entry key="order_shipped"><bean class="com.roamtech.uc.handler.om.services.OrderShippedService" /></entry>
+									<entry key="evoucher_create"><bean class="com.roamtech.uc.handler.om.services.EvoucherCreateService" /></entry>
+									<entry key="evouchersn_generate"><bean class="com.roamtech.uc.handler.om.services.EvoucherSnGenService" /></entry>
+									<entry key="refund_gets"><bean class="com.roamtech.uc.handler.om.services.RefundGetsService" /></entry>
+									<entry key="refund_audit"><bean class="com.roamtech.uc.handler.om.services.RefundAuditService" /></entry>
+									<entry key="refund_received"><bean class="com.roamtech.uc.handler.om.services.RefundReceivedService" /></entry>
+									<entry key="datatraffic_gets"><bean class="com.roamtech.uc.handler.om.services.DataTrafficGetsService" /></entry>
+									<entry key="order_paid"><bean class="com.roamtech.uc.handler.om.services.OrderPaidService" /></entry>
+									<entry key="order_search"><bean class="com.roamtech.uc.handler.om.services.OMOrderGetsNewService"/></entry>
+									<entry key="call_record_gets"><bean class="com.roamtech.uc.handler.om.services.CallRecordGetsService" /></entry>
+									<entry key="touchdev_search"><bean class="com.roamtech.uc.handler.om.services.OMTouchDevGetsService" /></entry>
+									<entry key="datacard_gets"><bean class="com.roamtech.uc.handler.om.services.OMDataCardGetsService" /></entry>
+									<entry key="login"><bean class="com.roamtech.uc.handler.om.services.OMLoginService" /></entry>
+									</map>
+		                        </property>
+	                        </bean>
+	                    </list>
+	                </property>
+	            </bean>
+				  <bean id="handlerlist" class="org.eclipse.jetty.server.handler.RequestLogHandler">
+					  <property name="requestLog">
+						  <bean class="com.roamtech.uc.handler.UCRequestLog">
+							  <property name="append" value="true"/>
+							  <property name="filename" value="${log4j.file}.yyyy_mm_dd"/>
+							  <property name="extended" value="true"/>
+							  <property name="retainDays" value="31"/>
+							  <property name="filenameDateFormat" value="yyyy-MM-dd"/>
+							  <property name="logDateFormat" value="yyyy-MMM-dd HH:mm:ss.sss"/>
+							  <property name="preferProxiedForAddress" value="true" />
+							  <property name="logLatency" value="true"/>
+							  <property name="logServer" value="true"/>
+						  </bean>
+					  </property>
+				  </bean>
+	          </list>
+	          </property>
+	        </bean>
+        </property>
+    </bean>
+</beans>

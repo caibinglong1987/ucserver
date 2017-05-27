@@ -1,0 +1,2 @@
+mysql -uroot -p123456 -h192.168.0.49 --default-character-set=utf8<create_db.sql
+mysql -uucdba -pucdba123 -h192.168.0.49 --default-character-set=utf8 --database ucdb<tb__create.sql

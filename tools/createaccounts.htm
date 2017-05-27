@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" ><!--<![endif]-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>络漫配置</title>
+	<meta name="description" content="">
+	<meta name="keyword" content="">
+	<meta name="author" content="">
+	<meta http-equiv="X-UA-Compatible" content="edge">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="edge">
+	<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+	<script>
+	function login(){
+		$.ajax({
+			url: 'https://www.roam-tech.com/uc/services/login',
+			type: 'post',
+			dataType: 'json',
+			contentType: 'application/json; charset=UTF-8',
+			data: JSON.stringify({
+				'username': $("#username").val(),
+				'password': $("#password").val(),
+			
+			}), 
+			success: function(data){
+				if(data.error_no === 0 ){
+					user = {
+						userid : data.userid,
+						sessionid : data.sessionid,
+						phone : data.result.phone,
+						username : data.result.username,
+					};
+					localStorage.setItem('user',JSON.stringify(user));  
+					userid = user.userid;
+					sessionid = user.sessionid; //每次登陆sessionid随机改变
+					$("#logindiv").hide();
+					setTimeout(function(){
+						init();//登录完之后init
+					},10)
+				} else {
+					alert(data.error_info);
+				}
+			},
+			error: function(xhr, type){
+				Tips.alert('发生错误，请重试！')
+			}
+		}); 
+	}
+	if(!localStorage.user){
+//		alert(localStorage.user);
+		$("#createaccounts").hide();
+		//$("#createaccount_result").hide();
+		$("#logindiv").show();
+	}else{
+		$("#logindiv").hide();
+//		alert(localStorage.user);
+		init();
+	}
+	function getroles() {
+		$.ajax({
+			url: 'http://www.roam-tech.com/uc/services/role_gets',
+			type: 'post',
+			dataType: 'json',
+			contentType: 'application/json; charset=UTF-8',
+			data: JSON.stringify({}), 
+			success: function(data){
+				if(data.error_no === 0 ){
+					var roles = data.result.roles;
+					var options='';
+					$.each(roles,function(i,item){
+						options+="<option value='"+item.roleid+"'>"+item.name+"</option>";
+						})
+					$(options).appendTo("#rolelist");
+					$("#logindiv").hide();
+				} else {
+					alert(data.error_info);
+				}
+			},
+			error: function(xhr, type){
+				Tips.alert('发生错误，请重试！')
+			}
+		}); 
+	}
+	function getcompanys() {
+		$.ajax({
+			url: 'http://www.roam-tech.com/uc/services/company_gets',
+			type: 'post',
+			dataType: 'json',
+			contentType: 'application/json; charset=UTF-8',
+			data: JSON.stringify({}), 
+			success: function(data){
+				if(data.error_no === 0 ){
+					var companys = data.result.companys;
+					var options='';
+					$.each(companys,function(i,item){
+						options+="<option value='"+item.id+"'>"+item.name+"</option>";
+						})
+					$(options).appendTo("#companylist");
+					$("#createaccounts").show();
+				} else {
+					alert(data.error_info);
+				}
+			},
+			error: function(xhr, type){
+				Tips.alert('发生错误，请重试！')
+			}
+		}); 
+	}
+	function init() {
+		//$("#createaccount_result").hide();
+		$("#createaccounts").show();
+		getroles();
+		getcompanys();
+	}
+	function account_create() {
+		userid = JSON.parse(localStorage.getItem('user')).userid;
+		sessionid = JSON.parse(localStorage.getItem('user')).sessionid;
+		var roleid = $('#rolelist').val();
+		var username = roleid==1?$('#companylist').val()+$('#nusername').val():$('#nusername').val();
+		$.ajax({
+			url: 'https://www.roam-tech.com/om/services/account_create',
+			type: 'post',
+			dataType: 'json',
+			contentType: 'application/json; charset=UTF-8',
+			data:JSON.stringify({
+				"userid": userid,
+				"sessionid":sessionid,
+				"quantity": $("#quantity").val(),
+				"roleid":  $('#rolelist').val(),
+				"companyid":  $('#companylist').val(),
+				"username":  username,
+				"password":  $('#npassword').val(),
+			}), 
+			success: function(data){
+				if(data.error_no === 0 ){
+					var users = data.result.users;
+					var options='<p>id,username,password</p>';
+					$.each(users,function(i,item){
+						options+="<p>"+item.userid+","+item.username+","+item.password+"<button onclick='account_delete("+item.username+")'>删除</button></p>";
+						})
+					$("#createaccount_result").html(options);
+					$("#createaccounts").hide();
+					$("#createaccount_result").show();
+				} else {
+					if(data.error_no === 1101) {
+						localStorage.removeItem('user')
+					}
+					alert(data.error_info);
+				}
+			},
+			error: function(xhr, type){
+				Tips.alert('发生错误，请重试！')
+			}
+		});			
+	}
+	function account_delete(username) {
+		userid = JSON.parse(localStorage.getItem('user')).userid;
+		sessionid = JSON.parse(localStorage.getItem('user')).sessionid;
+		$.ajax({
+			url: 'https://www.roam-tech.com/om/services/account_delete',
+			type: 'post',
+			dataType: 'json',
+			contentType: 'application/json; charset=UTF-8',
+			data:JSON.stringify({
+				"userid": userid,
+				"sessionid":sessionid,
+				"username": username,
+			}), 
+			success: function(data){
+				if(data.error_no === 0 ){
+					alert(data.error_info);
+				} else {
+					if(data.error_no === 1101) {
+						localStorage.removeItem('user')
+					}
+					alert(data.error_info);
+				}
+			},
+			error: function(xhr, type){
+				Tips.alert('发生错误，请重试！')
+			}
+		});			
+	}
+
+	function change_role() {
+		var roleid = $('#rolelist').val();
+		if(roleid == 3) {
+			$("#quantity").val("1");
+			$('#nusername').attr('placeholder','络漫宝账户');
+			//$("#quantity").after('<p>手机号：<input type="text" id="nusername" name="username" placeholder="络漫宝账户"/></p><p>密   码：<input type="password" id="npassword" name="password"/></p>')
+		} else if(roleid == 1) {
+			$("#quantity").val("1");
+			$('#nusername').attr('placeholder','店员账户');
+			//$("#quantity").after('<p>手机号：<input type="text" id="nusername" name="username" placeholder="店员账户"/></p><p>密   码：<input type="password" id="npassword" name="password"/></p>')
+		} else if(roleid == 2) {
+			$("#quantity").val("1");
+			$('#nusername').attr('placeholder','管理员账户');
+			//$("#quantity").after('<p>手机号：<input type="text" id="nusername" name="username" placeholder="店员账户"/></p><p>密   码：<input type="password" id="npassword" name="password"/></p>')
+		}
+	}
+	</script>
+</head>		
+	<!--min css-->
+	<body >
+	<!--img style="position:absolute; z-index:1; margin:0 auto;align:center;"  src="image\bg.jpg" /-->
+		<div id="logindiv">
+				<p>用户名：<input type="text" id="username" name="username" placeholder="管理员账户"/></p>
+				<p>密   码: <input type="password" id="password" name="password"/></p>
+				<p><button onclick="login()">登录</button></p>
+		</div>
+		<div id="createaccounts" style="display: none;">
+				<p>角色：<select id="rolelist" onchange= "change_role()"></select></p>
+				<p>公司: <select id="companylist"></select></p>
+				<p>数量：<input type="number" id="quantity" name="quantity" placeholder="创建账户数量"/></p>
+				<p>手机号：<input type="text" id="nusername" name="username" placeholder="店员账户"/></p>
+				<p>密   码：<input type="password" id="npassword" name="password"/></p>
+				<p><button onclick="account_create()">创建</button></p>
+		</div>		
+		<div id="createaccount_result">
+		</div>
+</body>
+
+</html>

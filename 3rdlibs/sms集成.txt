@@ -1,0 +1,6 @@
+∂Ã–≈∆ΩÃ®≤‚ ‘∫≈¬Î
+15336518921
+18668008193
+18667193709
+
+mvn install:install-file -DgroupId=com.cloopen.rest.sdk -DartifactId=smssdk -Dversion=v2.6.3r -Dfile=CCP_REST_SMS_SDK_JAVA_v2.6.3r.jar -Dpackaging=jar -DgeneratePom=true
